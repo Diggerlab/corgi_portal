@@ -5,7 +5,6 @@ source "https://rubygems.org"
 gem 'rails', '4.1'
 gem 'mysql2'#, '0.3.11'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -25,10 +24,6 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-gem 'rabl'
-gem 'oj' #rabl required
 gem "bcrypt-ruby", "~> 3.1.2"
 
 
@@ -36,8 +31,8 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
-gem 'devise'
-gem 'activeadmin', github: 'gregbell/active_admin'
+# gem 'devise'
+# gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   # gem 'guard'
