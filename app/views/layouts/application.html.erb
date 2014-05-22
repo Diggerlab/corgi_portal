@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App4</title>
+  <title>Corig_Portal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+  function myFunction(){
+    var tb_password = document.getElementById("user_password");
+    tb_password.type = (tb_password.type == 'text') ? 'password' : 'text';
+  }
+</script>
 </head>
 <body>
 
