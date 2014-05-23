@@ -1,6 +1,6 @@
-class CreateModules < ActiveRecord::Migration
+class CreateServices < ActiveRecord::Migration
   def change
-    create_table :modules do |t|
+    create_table :services do |t|
       t.string :code
       t.string :title
       t.string :description
