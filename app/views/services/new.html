@@ -1,0 +1,11 @@
+<h1>请选择服务</h1>
+<%@services.each do |service|%>
+  <%=service.title%></br>
+<%end%>
+<%=current_user.name%>
+<%= form_for :user_service,:html=>{:class=> "user_service-create"}, :url=>{:controller=>"user_services",:action=>"create"} do |f| %>
+ <!--    <input class="form-control" id="user_name" name= "name" type="text" placeholder="user_name" required autofocus /></br> -->
+  <div class="actions">
+    <%= f.submit "确认"%>
+  </div>
+<%end%>

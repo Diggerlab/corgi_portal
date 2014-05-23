@@ -5,6 +5,9 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create!(app_params)
+    @user = @app.user
+    redirect_to new_service_url
+
   end
 
   private

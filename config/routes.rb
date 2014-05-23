@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users
   resources :apps, only: [:new, :create]
+  resources :services, only: [:new]
+  resources :user_services, only: [:create]
   post '/login', to: 'logins#create'
   get '/login', to: 'logins#login', as: 'user_login' 
 
