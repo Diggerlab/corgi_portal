@@ -1,4 +1,13 @@
 <p>
 用户<%= link_to "#{@user.name}", user_path(@user.id) %>
 </p>
-
+<%= form_for :app,:html=>{:class=> "app-new"}, :url=>{:controller=>"apps",:action=>"create"} do |f| %>
+    创建游戏名字：<input class="form-control" id="user_apps" name= "name" type="text" placeholder="name" required autofocus /></br>
+    游戏网址：<input class="form-control" id="user_apps" name= "net_address" type="text" placeholder="www.game.com" required autofocus /></br>
+    游戏类别：<input class="form-control" id="user_apps" name= "category" type="text" placeholder="" required autofocus /></br>
+    游戏平台：<input class="form-control" id="user_apps" name= "platform" type="text" placeholder="diggerlab" required autofocus /></br>
+    <%= hidden_field_tag(:user_id, @user.id) %>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+<%end%>
