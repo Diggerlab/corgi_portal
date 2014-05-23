@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users
+  post '/login', to: 'logins#create'
+  get '/login', to: 'logins#login', as: 'user_login' 
 
   
   root :to => "welcome#index"

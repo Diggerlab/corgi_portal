@@ -7,6 +7,17 @@ class User < ActiveRecord::Base
 
   before_create :init_password
 
+  def self.authentication_user!(name,password)
+    @user = User.find_by name: name
+    raise 'user name is wrong' unless @user
+    hashed_pass = Password.new(@user.password)
+    if hashed_pass == password
+      return @user
+    else
+      raise 'password is wrong'
+    end
+  end
+
   private
 
   def init_password

@@ -1,0 +1,9 @@
+<h2 class = "form-signin-heading">Login</h2>
+<%= form_for :user,:html=>{:class=> "form-signin"}, :url=>{:controller=>"logins",:action=>"login"} do |f| %>
+    <input class="form-control" id="user_name" name= "name" type="text" placeholder="name" required autofocus /></br>
+    <input class="form-control" id="user_password" name="password" placeholder="password" type="password" required/></br>
+  <input onclick="myFunction()" type="checkbox" name="show"/>show password<br/>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+<%end%>
