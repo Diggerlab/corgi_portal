@@ -2,10 +2,12 @@ class AppsController < ApplicationController
   def new
     @app = App.new
   end
+  def show
+    
+  end
 
   def create
     @app = App.create!(app_params)
-    redirect_to apps_url
   end
 
   def index

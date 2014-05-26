@@ -1,22 +1,25 @@
 class AppServicesController < ApplicationController
   def create
-    puts "here"
     @app = App.find(params['app'])
     params['service_ids'].each do |id|
-      AppService.create!(user_id: current_user.id, service_id: id, app_id: @app.id)
+      AppService.create!(service_id: id, app_id: @app.id)
     end
-    puts params['app']
-    #redirect_to user_service_url(:sitel => @app.name)
   end
 
+  def edit
+    @app_service = AppService.find(params[:id])
+  end
   def index
-    # @app = App.find_by(name: params[:sitel]
-    # @user = current_user
-    # @user_services = @user.user_services
+    @app_service = AppService.all
+  end
+  def new
+    @app = App.find(params[:app_id])
+    @app_service = AppService.new
+    @services = Service.all
   end
 
   private
   def user_service_params
-    params.permit(:id, :user_id, :service_id, :created_at)
+    params.permit(:id, :app_id, :service_id, :created_at)
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-  resources :apps, only: [:new, :create, :index]
+  resources :apps
   # resources :services, only: [:new]
   # resources :user_services, only: [:create, :index]
   post '/login', to: 'logins#create'

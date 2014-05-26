@@ -1,8 +1,10 @@
 <h1>用户名: <%=current_user.name%></h1>
-<ul>
+<ol>
   <%@app.each do |app|%>
-    <ui>
-      游戏名称：<%=link_to app.name%>
-    </ui>
+    <li>
+      游戏名称：<%=link_to app.name, app_app_services_path(app_id: app.id)%></br>
+    </li>
   <%end%>
-</ul>
+</ol>
+
+<%=link_to '创建新游戏', new_app_path%>
