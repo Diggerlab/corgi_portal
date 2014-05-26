@@ -1,3 +1,3 @@
 class Service < ActiveRecord::Base
-  belongs_to :user_service
+  has_many :user_services
 end

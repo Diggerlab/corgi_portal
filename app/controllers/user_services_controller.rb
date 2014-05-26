@@ -1,6 +1,9 @@
 class UserServicesController < ApplicationController
   def create
-   @user_service = UserServices.create!(user_service_params)
+    params['service_ids'].each do |id|
+      UserService.create!(user_id: current_user.id, service_id: id)
+    end
+   # @user_service = UserServices.create!(user_service_params)
   end
 
   private
