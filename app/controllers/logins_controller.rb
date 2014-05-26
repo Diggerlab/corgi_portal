@@ -6,6 +6,11 @@ class LoginsController < ApplicationController
   def create
     @user = User.authentication_user!(params[:name],params[:password])
     session[:user_id] = @user.id
-    render template: "apps/new"
+    if @user.apps.first == nil
+      redirect_to new_app_url   
+    else
+      redirect_to apps_url
+    end
   end
+
 end

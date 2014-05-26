@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526054604) do
+ActiveRecord::Schema.define(version: 20140523081842) do
+
+  create_table "app_services", force: true do |t|
+    t.integer  "app_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "apps", force: true do |t|
     t.string   "name"
-    t.string   "net_address"
+    t.string   "www"
     t.string   "category"
     t.string   "platform"
     t.integer  "user_id"
@@ -29,14 +36,6 @@ ActiveRecord::Schema.define(version: 20140526054604) do
     t.string "code"
     t.string "title"
     t.string "description"
-  end
-
-  create_table "user_services", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "service_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "app_id"
   end
 
   create_table "users", force: true do |t|

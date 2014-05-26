@@ -2,7 +2,7 @@ class CreateApps < ActiveRecord::Migration
   def change
     create_table :apps do |t|
       t.string :name
-      t.string :net_address
+      t.string :www
       t.string :category
       t.string :platform
       t.references :user, index: true

@@ -5,9 +5,11 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create!(app_params)
-    @user = @app.user
-    redirect_to new_service_url(:sitel => @app.name)
+    redirect_to apps_url
+  end
 
+  def index
+    @app = current_user.apps
   end
 
   private
