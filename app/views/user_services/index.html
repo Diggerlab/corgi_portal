@@ -1,0 +1,9 @@
+<h1>
+  用户名：<%= @user.name%>
+</h1>
+<span>
+  <%=link_to '个人信息'%>
+  <%@user_services.each do |user_service|%>
+    <%=link_to user_service.service.title%>
+  <%end%>
+</span>

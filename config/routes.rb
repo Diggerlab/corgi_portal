@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :users
   resources :apps, only: [:new, :create]
-  resources :services, only: [:new]
+  #resources :services, only: [:new]
   resources :user_services, only: [:create]
   post '/login', to: 'logins#create'
   get '/login', to: 'logins#login', as: 'user_login' 
+  get 'apps/:sitel/services/new', to: 'services#new', as: 'new_service'
+  get 'apps/:sitel/user_services', to: 'user_services#index', as: 'user_service'
 
   
   root :to => "welcome#index"
