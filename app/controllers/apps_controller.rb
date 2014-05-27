@@ -3,11 +3,11 @@ class AppsController < ApplicationController
     @app = App.new
   end
   def show
-    
+    @app = App.find(params[:id])
   end
 
   def create
-    @app = App.create!(app_params)
+    @app = current_user.apps.create!(app_params)
     redirect_to update_services_url(app_id: @app.id)
   end
 
