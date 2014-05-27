@@ -8,6 +8,7 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create!(app_params)
+    redirect_to update_services_url(app_id: @app.id)
   end
 
   def index

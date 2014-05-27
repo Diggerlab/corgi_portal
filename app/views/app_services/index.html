@@ -1,12 +1,23 @@
-<h1>已选择项目</h1>
-<ol>
-  <%@app_service.each do |service|%>
-    <li>
-      <%=service.service.title%>
-      <%= link_to '删除服务', app_app_service_path(app_id: @app.id, id: service.id),
-            :confirm => 'Are you sure?', :method => :delete %>
-    </li>
+<h1>服务</h1>
+<%=form_for :app_service,:html=>{:class=> "app_service_edit"}, :url=>{:controller=>"app_services",:action=>"create"} do |f| %>
+
+  系统服务</br>
+  <%@system_services.each do |sys|%>
+    <%= sys.title%></br>
   <%end%>
-</ol>
-<%=link_to '添加新服务',new_app_app_service_path(app_id: @app.id)%>
-<%=link_to '返回游戏列表', apps_path%>
+
+  用户可选服务</br>
+  <%@exist_services.each do |exist|%>
+    <%= check_box_tag 'service_ids[]', exist.id ,true%>
+    <%= exist.title%></br>
+  <%end%>
+  
+  <%@services.each do |service|%>
+      <%= check_box_tag 'service_ids[]', service.id %>
+      <%= service.title%></br>
+  <%end%>
+  <%= hidden_field_tag 'app', @app.id  %>
+  <div class="actions">
+    <%= f.submit "确认"%>
+  </div>
+<%end%>

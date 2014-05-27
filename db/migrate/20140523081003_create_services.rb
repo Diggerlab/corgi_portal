@@ -3,6 +3,7 @@ class CreateServices < ActiveRecord::Migration
     create_table :services do |t|
       t.string :code
       t.string :title
+      t.string :state
       t.string :description
     end
   end

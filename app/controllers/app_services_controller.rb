@@ -1,19 +1,31 @@
 class AppServicesController < ApplicationController
   def create
     @app = App.find(params['app'])
-    params['service_ids'].each do |id|
-      AppService.create!(service_id: id, app_id: @app.id)
-    end
-    redirect_to app_app_services_url, app_id: @app.id
+    AppService.auth_service(@app, params['service_ids'])
+    redirect_to app_app_services_path(app_id: @app.id)
   end
 
-  def edit
-    @app_service = AppService.find(params[:id])
+  def update
+    # @app = App.find(params['app'])
+    # AppService.auth_service(@app, params['service_ids'])
+    # redirect_to app_app_services_path(app_id: @app.id)
   end
 
   def index
-    @app_service = AppService.where(app_id: params[:app_id])
     @app = App.find(params[:app_id])
+    @exist_services = []
+    @system_services = []
+    unless @app.app_services.count == 0
+      @app.app_services.each do |ser|
+        if ser.service.state == 'system'
+          @system_services << ser.service
+        else
+          @exist_services << ser.service 
+        end
+        
+      end 
+    end
+    @services = Service.all - @exist_services -@system_services
   end
 
   def new

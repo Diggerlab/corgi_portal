@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   resources :users
   resources :apps
-  # resources :services, only: [:new]
-  # resources :user_services, only: [:create, :index]
   post '/login', to: 'logins#create'
   get '/login', to: 'logins#login', as: 'user_login' 
-
+  post '/apps/:app_id/app_services', to: 'app_services#create', as: 'update_services'
   resources :apps do 
-    resources :app_services
+    resources :app_services, only: ['index', 'destroy']
   end
 
   root :to => "welcome#index"

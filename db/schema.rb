@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140523081842) do
   create_table "app_services", force: true do |t|
     t.integer  "app_id"
     t.integer  "service_id"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140523081842) do
   create_table "services", force: true do |t|
     t.string "code"
     t.string "title"
+    t.string "state"
     t.string "description"
   end
 
