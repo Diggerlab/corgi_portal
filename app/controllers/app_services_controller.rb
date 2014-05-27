@@ -19,9 +19,14 @@ class AppServicesController < ApplicationController
   def new
     @app = App.find(params[:app_id])
     @app_service = AppService.new
-    @services = Service.all
+    if @app.app_services.count != 0
+      @services = AppService.auth_service(@app)
+    else
+      @services = Service.all
+    end
+    
   end
-  
+
   def destroy
     @app_service = AppService.find(params[:id])
     @app_service.destroy
