@@ -2,7 +2,7 @@
 <ol>
   <%@app.each do |app|%>
     <li>
-      游戏名称：<%=link_to app.name, app_app_services_path(app_id: app.id)%></br>
+      游戏名称：<%=link_to app.name, app_app_services_path(app_id: app.id)%>
     </li>
   <%end%>
 </ol>

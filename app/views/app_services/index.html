@@ -1,0 +1,11 @@
+<h1>已选择项目</h1>
+<ol>
+  <%@app_service.each do |service|%>
+    <li>
+      <%=service.service.title%>
+      <%= link_to '删除服务', app_app_service_path(app_id: @app.id, id: service.id),
+            :confirm => 'Are you sure?', :method => :delete %>
+    </li>
+  <%end%>
+</ol>
+<%=link_to '添加新服务',new_app_app_service_path(app_id: @app.id)%>

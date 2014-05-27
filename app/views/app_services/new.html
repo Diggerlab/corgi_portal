@@ -4,8 +4,12 @@
 <ol>
   <%@services.each do |service|%>
     <li>
-      <%= check_box_tag 'service_ids[]', service.id %>
-      <%= service.title%>
+      <%if ['logins', 'users', 'passwords_requests'].include? service.title%>
+        <%= check_box_tag 'service_ids[]', service.id, true %>
+      <%else%>
+        <%= check_box_tag 'service_ids[]', service.id %>
+      <%end%>
+       <%= service.title%>
     </li>
   <%end%>
 </ol>
