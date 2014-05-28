@@ -8,7 +8,7 @@ class AppsController < ApplicationController
 
   def create
     @app = current_user.apps.create!(app_params)
-    redirect_to update_services_url(app_id: @app.id)
+    redirect_to app_app_services_url(app_id: @app.id)
   end
 
   def index
@@ -23,6 +23,10 @@ class AppsController < ApplicationController
 
   def edit
     @app = App.find(params[:id])
+  end
+
+  def service_details
+    
   end
 
   private

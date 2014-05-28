@@ -1,7 +1,8 @@
 <h2 class = "form-signin-heading">Login</h2>
+
 <%= form_for :user,:html=>{:class=> "form-signin"}, :url=>{:controller=>"logins",:action=>"login"} do |f| %>
-    <input class="form-control" id="user_name" name= "name" type="text" placeholder="name" required autofocus /></br>
-    <input class="form-control" id="user_password" name="password" placeholder="password" type="password" required/></br>
+    用户：<%= f.text_field :name, placeholder: 'name', class: 'form-control', required: true, autofocus: true%></br>
+    密码：<%= f.text_field :password, placeholder: 'password', class: 'form-control', required: true, autofocus: true%></br>
   <div class="actions">
     <%= f.submit "提交"%>
   </div>

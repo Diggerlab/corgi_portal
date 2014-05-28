@@ -2,10 +2,10 @@
 创建游戏：
 </p>
 <%= form_for @app do |f| %>
-    游戏名称：<input class="form-control" id="user_apps" name= "name" type="text" placeholder="name" required autofocus /></br>
-    游戏网址：<input class="form-control" id="user_apps" name= "www" type="text" placeholder="www.game.com" required autofocus /></br>
-    游戏类别：<input class="form-control" id="user_apps" name= "category" type="text" placeholder="app" required autofocus /></br>
-    游戏平台：<input class="form-control" id="user_apps" name= "platform" type="text" placeholder="diggerlab" required autofocus /></br>
+    游戏名称：<%= f.text_field :name, placeholder: 'name', class: 'form-control', required: true, autofocus: true%></br>
+    游戏网址：<%= f.text_field :www, placeholder: 'www.game.com', class: 'form-control', required: true, autofocus: true%></br>
+    游戏类别：<%= f.text_field :category, placeholder: 'app', class: 'form-control', required: true, autofocus: true%></br>
+    游戏平台：<%= f.text_field :platform, placeholder: 'diggerlab', class: 'form-control', required: true, autofocus: true%></br>
   <div class="actions">
     <%= f.submit "下一步"%>
   </div>

@@ -4,7 +4,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-    @user = User.authentication_user!(params[:name],params[:password])
+    @user = User.authentication_user!(params[:user][:name],params[:user][:password])
     session[:user_id] = @user.id
     if @user.apps.first == nil
       redirect_to new_app_url   
@@ -12,5 +12,4 @@ class LoginsController < ApplicationController
       redirect_to apps_url
     end
   end
-
 end

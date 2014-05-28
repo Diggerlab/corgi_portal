@@ -1,35 +1,4 @@
-
-<div class='app_name'>
-  <h2>当前游戏：<%=@app.name%></h2>
-</div>
-<div class='app_inform'>
-  <p>
-    公司信息：<%=current_user.company%> || 游戏种类：<%=@app.category%> || 游戏地址：<%=@app.www%> ||游戏状态：正常
-  </p>
-
-  <p>
-    你当前已经选择<%=@app.app_services.count%>个服务
-  </p>
-</div>
-
-<div class='app_services'>
-  <ol class=''>
-  <%@app.app_services.each do |ser|%>
-    <li class=''>
-      <%=link_to ser.service.title %>
-    </li>
-  <%end%>
-  </ol>
-</div>
-
-<div class="sidebar">
-  <h3>Sidebar</h3>
-  <ul class="">
-    <li><%= link_to "修改App信息", edit_app_path%></li>
-    <li><%= link_to "修改公司信息", edit_user_path(id: current_user.id) %></li>
-    <li><%= link_to "管理服务", app_app_services_path(app_id: @app.id)  %></li>
-  </ul>
-</div>
+<%= render 'form' %>
 
 <div class='use_services'>
   <ol class=''>

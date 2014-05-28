@@ -24,7 +24,6 @@ class AppServicesController < ApplicationController
     else
       @services = Service.all
     end
-    
   end
 
   def destroy
