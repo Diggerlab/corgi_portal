@@ -10,4 +10,12 @@ class AppService < ActiveRecord::Base
       AppService.create(app_id: app.id, service_id: ser_id, state: @service.state )
     end
   end
+
+  def self.find_services(app)
+    findservices = []
+    app.app_services.where(state: 'user').each do |app_ser|
+      findservices << app_ser.service
+    end
+    findservices
+  end
 end

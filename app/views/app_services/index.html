@@ -7,16 +7,14 @@
   <%end%>
 
   用户可选服务</br>
-  <%@exist_services.each do |exist|%>
-    <%= check_box_tag 'service_ids[]', exist.id ,true%>
-    <%= exist.title%></br>
-  <%end%>
-  
-  <%@services.each do |service|%>
+  <%@user_services.each do |service|%>
+    <%if @app_services.include? service%>
+      <%= check_box_tag 'service_ids[]', service.id, true %>
+    <%else%>
       <%= check_box_tag 'service_ids[]', service.id %>
+    <%end%>
       <%= service.title%></br>
   <%end%>
-  <%= hidden_field_tag 'app', @app.id  %>
   <div class="actions">
     <%= f.submit "确认"%>
   </div>
