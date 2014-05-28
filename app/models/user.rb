@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :apps
 
   before_create :init_password
+  # before_action :change_password, only: :update
 
   def self.authentication_user!(name,password)
     @user = User.find_by name: name
@@ -27,4 +28,9 @@ class User < ActiveRecord::Base
     self.re_password = BCrypt::Password.create(self.re_password)
 
   end
+
+  # def change_password
+  #   self.password = BCrypt::Password.create(self.password)
+  #   self.re_password = 
+  # end
 end
