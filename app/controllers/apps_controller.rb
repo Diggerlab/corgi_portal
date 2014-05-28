@@ -1,9 +1,9 @@
 class AppsController < ApplicationController
   def new
-    @app = App.new
+    @app = current_user.apps.new
   end
   def show
-    @app = App.find(params[:id])
+    @app = current_user.apps.find(params[:id])
   end
 
   def create
@@ -16,13 +16,13 @@ class AppsController < ApplicationController
   end
 
   def update
-    @app = App.find(params[:id])
+    @app = current_user.apps.find(params[:id])
     @app.update_attributes(app_params)
     redirect_to apps
   end
 
   def edit
-    @app = App.find(params[:id])
+    @app = current_user.apps.find(params[:id])
   end
 
   def service_details
@@ -31,7 +31,7 @@ class AppsController < ApplicationController
 
   private
     def app_params
-       params.require(:app).permit(:id, :user_id, :name, :www, :category, 
+      params.require(:app).permit(:id, :user_id, :name, :www, :category, 
         :platform, :created_at)
     end
 end
