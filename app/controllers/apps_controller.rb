@@ -15,6 +15,10 @@ class AppsController < ApplicationController
     @app = current_user.apps
   end
 
+  def edit
+    @app = App.find(params[:id])
+  end
+
   private
     def app_params
       params.permit(:id, :user_id, :name, :net_address, :category, 

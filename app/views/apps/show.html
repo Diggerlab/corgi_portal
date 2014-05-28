@@ -1,0 +1,47 @@
+
+<div class='app_name'>
+  <h2>当前游戏：<%=@app.name%></h2>
+</div>
+<div class='app_inform'>
+  <p>
+    公司信息：<%=current_user.company%> || 游戏种类：<%=@app.category%> || 游戏状态：正常
+  </p>
+
+  <p>
+    你当前已经选择<%=@app.app_services.count%>个服务
+  </p>
+</div>
+
+<div class='app_services'>
+  <ol class=''>
+  <%@app.app_services.each do |ser|%>
+    <li class=''>
+      <%=link_to ser.service.title %>
+    </li>
+  <%end%>
+  </ol>
+</div>
+
+<div class="sidebar">
+  <h3>Sidebar</h3>
+  <ul class="">
+    <li><%= link_to "修改App信息", edit_app_path%></li>
+    <li><%= link_to "修改用户信息", edit_user_path(id: current_user.id) %></li>
+    <li><%= link_to "管理服务", "/path3"  %></li>
+  </ul>
+</div>
+
+<div class='use_services'>
+  <ol class=''>
+    <li><h3>用户注册</h3></li>
+      <p class=""> API EndPoint: app.host/users/new</p>
+      <p class=""> 使用说明：</p>
+      <p>通过调用API EndPoint地址可以让游戏用户注册</p>
+    <li><h3>修改密码</h3></li>
+      <p class=""> API EndPoint: app.host/users/:token/change_password</p>
+      <p class=""> 使用说明：</p>
+      <p>通过调用API EndPoint地址游戏用户可以自行修改密码</p>
+  </ol>
+</div>
+
+
