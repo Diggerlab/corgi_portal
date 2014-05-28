@@ -15,13 +15,19 @@ class AppsController < ApplicationController
     @app = current_user.apps
   end
 
+  def update
+    @app = App.find(params[:id])
+    @app.update_attributes(app_params)
+    redirect_to apps
+  end
+
   def edit
     @app = App.find(params[:id])
   end
 
   private
     def app_params
-      params.permit(:id, :user_id, :name, :net_address, :category, 
+       params.require(:app).permit(:id, :user_id, :name, :www, :category, 
         :platform, :created_at)
     end
 end

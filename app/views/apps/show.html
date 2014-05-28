@@ -4,7 +4,7 @@
 </div>
 <div class='app_inform'>
   <p>
-    公司信息：<%=current_user.company%> || 游戏种类：<%=@app.category%> || 游戏状态：正常
+    公司信息：<%=current_user.company%> || 游戏种类：<%=@app.category%> || 游戏地址：<%=@app.www%> ||游戏状态：正常
   </p>
 
   <p>
@@ -27,7 +27,7 @@
   <ul class="">
     <li><%= link_to "修改App信息", edit_app_path%></li>
     <li><%= link_to "修改用户信息", edit_user_path(id: current_user.id) %></li>
-    <li><%= link_to "管理服务", "/path3"  %></li>
+    <li><%= link_to "管理服务", app_app_services_path(app_id: @app.id)  %></li>
   </ul>
 </div>
 
