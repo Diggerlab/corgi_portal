@@ -14,7 +14,7 @@
 <div class='app_services'>
   <%@app.app_services.each do |ser|%>
     <span class=''>
-      <%=link_to ser.service.title %>
+      <%=link_to ser.service.title, service_details_app_path(id: @app.id, service_id: ser.service.id)%>
     </span>
   <%end%>
 </div>

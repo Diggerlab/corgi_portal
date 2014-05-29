@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :apps do 
     resources :app_services
     member do 
-      get 'service_details/:service_id', to: 'apps#service_details'
+      get 'service_details/:service_id', to: 'apps#service_details', as: 'service_details'
     end
     
   end
