@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523081842) do
+ActiveRecord::Schema.define(version: 20140528103123) do
 
   create_table "app_services", force: true do |t|
     t.integer  "app_id"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20140523081842) do
   end
 
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
+
+  create_table "service_functions", force: true do |t|
+    t.string  "title"
+    t.string  "api"
+    t.integer "service_id"
+    t.string  "instruction"
+  end
 
   create_table "services", force: true do |t|
     t.string "code"
