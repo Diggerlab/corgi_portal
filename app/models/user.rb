@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     raise "两次密码输入不一致" unless self.password == self.re_password
     self.password = BCrypt::Password.create(self.password)
     self.re_password = BCrypt::Password.create(self.re_password)
-
+    self.auth_token = SecureRandom.base64(15).tr('+/=lIO0', 'pqrsxyz')
   end
 
   # def change_password

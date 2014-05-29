@@ -5,11 +5,19 @@ class LoginsController < ApplicationController
 
   def create
     @user = User.authentication_user!(params[:user][:name],params[:user][:password])
-    session[:user_id] = @user.id
+    if params[:remember_me]
+      cookies.permanent[:auth_token] = @user.auth_token 
+    else
+      cookies[:auth_token] = @user.auth_token 
+    end
     if @user.apps.first == nil
       redirect_to new_app_url   
     else
       redirect_to apps_url
     end
+  end
+
+  def destroy
+    cookies.delete(:auth_token)
   end
 end
