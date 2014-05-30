@@ -1,0 +1,8 @@
+<h2 class = "form-signin-heading">公司信息</h2>
+<%= form_for :user_profile,:html=>{:class=> "form-signin"}, :url=>{:controller=>"user_profiles",:action=>"create"} do |f| %>
+    公司：<%= f.text_field :company, placeholder: 'company', class: 'form-control', required: true, autofocus: true%></br>
+    联系电话：<%= f.text_field :telephone, placeholder: 'telephone', class: 'form-control', required: true, autofocus: true%></br>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+<%end%>

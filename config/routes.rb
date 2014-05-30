@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
+  devise_for :users, :controllers => {
+    :registrations => 'users'
+  }
+  # resources :users
   resources :apps
-  post '/login', to: 'logins#create'
-  get '/login', to: 'logins#login', as: 'user_login' 
+  resources :user_profiles
+  # post '/login', to: 'logins#create'
+  # get '/login', to: 'logins#login', as: 'user_login' 
   resources :apps do 
     resources :app_services
     member do 
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
     
   end
 
-  root :to => "logins#login"
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

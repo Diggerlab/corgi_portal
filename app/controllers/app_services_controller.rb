@@ -1,8 +1,10 @@
 class AppServicesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @app = App.find(params['app_id'])
     AppService.auth_service(@app, params['service_ids'])
-    redirect_to app_app_services_path(app_id: @app.id)
+    redirect_to root_path
+
   end
 
   def update
