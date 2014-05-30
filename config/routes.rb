@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # resources :users
   resources :apps
   resources :user_profiles
+  resources :services, only: :index
   # post '/login', to: 'logins#create'
   # get '/login', to: 'logins#login', as: 'user_login' 
   resources :apps do 

@@ -6,4 +6,8 @@ class ServicesController < ApplicationController
     @user_service = UserService.new 
   end
 
+  def index
+    @services = Service.all
+  end
+
 end

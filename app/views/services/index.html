@@ -1,0 +1,10 @@
+<div class =''>
+  <ol>
+    <%@services.each do |service|%>
+      <li>
+        服务名称：<%=service.title%>
+      </li>
+        描述：<%=service.description%>
+    <%end%>
+  </ol>
+</div>

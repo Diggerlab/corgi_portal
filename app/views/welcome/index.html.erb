@@ -1,9 +1,34 @@
-<h1>Welcome</h1>
+<h1>Corgi</h1>
+<table border="1">
+  <tr>
+    <td>
+       <%= link_to "Apps", apps_path%></br>
+    </td>
+  </tr>
 
-<%= current_user.email %>
-<%current_user.apps.each do |app|%>
-  <%=app.name%>
-  <%= link_to "修改服务", app_app_services_url(app_id: app.id) %></br>
-<%end%>
+    <tr>
+    <td>
+       <%= link_to "Services", services_path %></br>
+    </td>
+  </tr>
 
-<%= link_to "退出", destroy_user_session_url, :class => "quite", :method => :delete %>
+    <tr>
+    <td>
+       <%= link_to "Accounts" %></br>
+    </td>
+  </tr>
+
+    <tr>
+    <td>
+       <%= link_to "Company"%></br>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <%= link_to "Support" %></br>
+    </td>
+  </tr>
+
+ 
+</table>
