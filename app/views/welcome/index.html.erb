@@ -1,4 +1,9 @@
 <h1>Welcome</h1>
-<%= link_to "注册", new_user_path %>
-<%= link_to "登录", user_login_path%>
 
+<%= current_user.email %>
+<%current_user.apps.each do |app|%>
+  <%=app.name%>
+  <%= link_to "修改服务", app_app_services_url(app_id: app.id) %></br>
+<%end%>
+
+<%= link_to "退出", destroy_user_session_url, :class => "quite", :method => :delete %>
