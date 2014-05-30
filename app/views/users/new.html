@@ -1,11 +1,9 @@
-<h2 class = "form-signin-heading">注册</h2>
+<h2 class = "form-signin-heading">用户注册</h2>
 <%= form_for :user,:html=>{:class=> "form-signin"}, :url=>{:controller=>"users",:action=>"create"} do |f| %>
-    用户：<%= f.text_field :name, placeholder: 'name', class: 'form-control', required: true, autofocus: true%></br>
-    公司：<%= f.text_field :company, placeholder: 'company', class: 'form-control', required: true, autofocus: true%></br>
-    联系邮箱：<%= f.text_field :contact_email, placeholder: 'www.tet.com', class: 'form-control', required: true, autofocus: true%></br>
+    用户：<%= f.text_field :email, placeholder: 'email', class: 'form-control', required: true, autofocus: true%></br>
     密码：<%= f.text_field :password, placeholder: 'password', class: 'form-control', required: true, autofocus: true%></br>
     重复密码：<%= f.text_field :re_password, placeholder: 'password', class: 'form-control', required: true, autofocus: true%></br>
   <div class="actions">
-    <%= f.submit "提交"%>
+    <%= f.submit "下一步"%>
   </div>
 <%end%>

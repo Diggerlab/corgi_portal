@@ -19,5 +19,6 @@ class LoginsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
+    redirect_to root_url, :notice => "Logged out!"
   end
 end

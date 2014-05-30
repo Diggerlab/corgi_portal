@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
+    redirect_to new_user_profile_url(user_id: @user.id)
   end
 
   def show
@@ -24,7 +25,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:id, :name, :password, :re_password, :company, 
-        :contact_email, :created_at)
+      params.require(:user).permit(:id, :email, :password, :re_password, :created_at)
     end
 end

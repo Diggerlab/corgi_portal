@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :users
   resources :apps
+  resources :user_profiles
   post '/login', to: 'logins#create'
   get '/login', to: 'logins#login', as: 'user_login' 
   resources :apps do 
