@@ -1,4 +1,5 @@
 class UsersController < Devise::RegistrationsController
+  layout 'application', only: ['new']
   def create
     build_resource user_params
     sign_up :user, resource
