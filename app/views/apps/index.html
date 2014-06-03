@@ -1,12 +1,24 @@
 <h3 class="page-header">Help: This is going to be highlighted notices here.</h3>
 
-<div class = "container">
-  <div class="row">
-      <div class="col-md-2"><%=link_to 'New', new_app_path%></div>
-      <div class="col-md-2"><%=link_to 'Change'%></div>
-      <div class="col-md-2"><%=link_to 'Disable'%></div>
-      <div class="col-md-2"><%=link_to 'Remove'%></div>
-  </div>
+<div class = "">
+    <div class="row">
+      <div class="col-md-2 btn-group">
+       <%=link_to 'New', new_app_path, class: 'btn btn-default btn-new'%> 
+      </div>
+
+      <div class="col-md-2 btn-group">
+        <%= button_to :Delete, '/apps/remove', method: :delete, id: 'btn-delete', 
+        class: 'btn btn-default btn-delete'%>
+      </div>
+
+      <div class="col-md-2 btn-group">
+        <%= button_to "Toggle State", '/apps/toggle_state', method: :put, id: 'toggle-state', 
+        class: 'btn btn-default toggle-state'%>
+      </div>
+
+    </div>
+     
+
   <div class= "table-responsive">
     <table class="table table-striped">
       <thead>
@@ -21,11 +33,11 @@
       <tbody>
         <%@app.each do |app|%>
         <tr>
-          <td><input type="checkbox"></td>
+          <td><%= check_box_tag 'app_ids[]', app.id %></td>
           <td><%=app.name%></td>
           <td><%=app.created_at%></td>
           <td><%=app.state%></td>
-          <td><%=link_to "查看服务",service_details_app_path(id: app.id, service_id: @service.id)%></td>>
+          <td><%=link_to "修改",service_details_app_path(id: app.id, service_id: @service.id)%></td>
         </tr>
         <%end%>
       </tbody> 
@@ -33,4 +45,28 @@
   </div>
 </div>
 
+<script type="text/javascript">
+$('#btn-delete').click(function(){
+  var ids = [];
+  $("input:checked").each(function(index, control){
+    ids.push($(control).val());
+  });
+  
+  $(this).parents('form').append("<input type='hidden' name='ids' value='"+ ids +"'>")
+  $(this).parents('form').submit();
+
+})
+
+$('#toggle-state').click(function(){
+  var ids = [];
+  $("input:checked").each(function(index, control){
+    ids.push($(control).val());
+  });
+
+  $(this).parents('form').append("<input type='hidden' name='ids' value='"+ ids +"'>")
+  $(this).parents('form').submit();
+})
+
+
+</script>
   

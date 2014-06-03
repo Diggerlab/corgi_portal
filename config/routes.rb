@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # get '/login', to: 'logins#login', as: 'user_login' 
   resources :apps do 
     resources :app_services
+    collection do 
+      delete :remove
+      put :toggle_state
+    end
     member do 
       get 'service_details/:service_id', to: 'apps#service_details', as: 'service_details'
     end

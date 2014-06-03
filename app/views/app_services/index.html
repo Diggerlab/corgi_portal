@@ -1,6 +1,22 @@
-<h1>服务</h1>
 <%=form_for :app_service,:html=>{:class=> "app_service_edit"}, :url=>{:controller=>"app_services",:action=>"create"} do |f| %>
+  <h1>APP</h1>
 
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon">Name</span>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon">Category</span>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon">Platform</span>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+
+  <h1>服务</h1>
   系统服务</br>
   <%@system_services.each do |sys|%>
     <%= sys.title%></br>

@@ -36,6 +36,27 @@ class AppsController < ApplicationController
     @service_functions = @service.service_functions
   end
 
+  def remove
+    select_ids =params[:ids].split(',')
+    @app = App.where(id: select_ids)
+    @app.each do |app|
+      app.app_services.delete_all
+      app.delete
+    end
+    redirect_to apps_url
+  end
+
+  def toggle_state
+    select_ids =params[:ids].split(',')
+    @app = App.where(id: select_ids)
+    @app.each do |app|
+      puts app.id
+      app.toggle(:state)
+      app.save
+    end
+    redirect_to apps_url
+  end
+
   private
     def app_params
       params.require(:app).permit(:id, :user_id, :name, :www, :category, 

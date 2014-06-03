@@ -1,8 +1,7 @@
 <div class='app_name'>
   <div class="row">
       <div class="col-md-4"><%=@app.name%></div>
-      <div class="col-md-4"><%=link_to "修改App", edit_app_path%></div>
-      <div class="col-md-4"><%= link_to "修改服务", app_app_services_path(app_id: @app.id)  %></div>
+      <div class="col-md-4"><%= link_to "Change settings", app_app_services_path(app_id: @app.id)  %></div>
   </div>
   <p><%=current_user.email%> created at <%=@app.created_at%> | state: <%=@app.state%></p>
 </div>
