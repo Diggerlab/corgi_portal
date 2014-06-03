@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     :sessions => 'sessions'
   }
   # resources :users
-  resources :apps
   resources :user_profiles
   resources :services, only: :index
   # post '/login', to: 'logins#create'

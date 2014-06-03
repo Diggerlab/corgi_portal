@@ -1,0 +1,14 @@
+<%= form_for(@user_profile) do |f| %>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone %><br />
+    <%= f.text_field :telephone %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit '更新公司信息' %>
+  </div>
+<% end %>

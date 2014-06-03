@@ -1,9 +1,14 @@
 <div class='app_name'>
-  <h2>当前游戏：<%=@app.name%></h2>
+  <div class="row">
+      <div class="col-md-4"><%=@app.name%></div>
+      <div class="col-md-4"><%=link_to "修改App", edit_app_path%></div>
+      <div class="col-md-4"><%= link_to "修改服务", app_app_services_path(app_id: @app.id)  %></div>
+  </div>
+  <p><%=current_user.email%> created at <%=@app.created_at%> | state: <%=@app.state%></p>
 </div>
-<div class='app_inform'>
+<div class='jumbotron'>
   <p>
-    公司信息：<%=current_user.company%> || 游戏种类：<%=@app.category%> || 游戏地址：<%=@app.www%> ||游戏状态：正常
+    公司信息：<%=current_user.user_profile.company%> || 游戏种类：<%=@app.category%> || 游戏地址：<%=@app.www%>
   </p>
 
   <p>
@@ -11,19 +16,14 @@
   </p>
 </div>
 
-<div class='app_services'>
-  <%@app.app_services.each do |ser|%>
-    <span class=''>
-      <%=link_to ser.service.title, service_details_app_path(id: @app.id, service_id: ser.service.id)%>
-    </span>
-  <%end%>
-</div>
 
-<div class="sidebar">
-  <h3>Sidebar</h3>
-  <ul class="">
-    <li><%= link_to "修改App信息", edit_app_path%></li>
-    <li><%= link_to "修改公司信息", edit_user_path(id: current_user.id) %></li>
-    <li><%= link_to "管理服务", app_app_services_path(app_id: @app.id)  %></li>
-  </ul>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <%@app.app_services.each do |ser|%>
+        <th><%=link_to ser.service.title, service_details_app_path(id: @app.id, service_id: ser.service.id)%></th>
+      <%end%>
+    </tr> 
+  </thead>
+</table>
+

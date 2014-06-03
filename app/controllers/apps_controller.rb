@@ -16,6 +16,7 @@ class AppsController < ApplicationController
 
   def index
     @app = current_user.apps
+    @service = Service.find_by(state: 'system')
   end
 
   def update
@@ -30,7 +31,8 @@ class AppsController < ApplicationController
 
   def service_details
     @app = current_user.apps.find(params[:id])
-    @service = Service.find(params[:service_id])
+    @service = Service.find(params[:service_id]) 
+    raise "there is no service" unless @app.app_services.find_by_service_id(params[:service_id])
     @service_functions = @service.service_functions
   end
 

@@ -1,12 +1,16 @@
 <%= render 'form' %>
-<div class='use_services'>
-  <ol class=''>
-    <%@service_functions.each do |f| %>
-      <li><h3><%=f.title %></h3></li>
-      <p class=""> API EndPoint: <%=f.api %></p>
-      <p class=""> 使用说明：</p>
+
+<div class='panel panel-default'>
+  <%@service_functions.each do |f| %>
+    <div class="panel-heading">
+      <h3 class="panel-heading"><%=f.title %></h3>
+    </div>
+    <div class="panel-body">
+      <p> API EndPoint: <%=f.api %></p>
+      <p> 使用说明：</p>
       <p><%=f.instruction %></p>
-    <%end%>
-  </ol>
+    </div>
+  <%end%>
 </div>
+
 

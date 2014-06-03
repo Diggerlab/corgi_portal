@@ -1,10 +1,11 @@
-<div class =''>
-  <ol>
-    <%@services.each do |service|%>
-      <li>
-        服务名称：<%=service.title%>
-      </li>
-        描述：<%=service.description%>
-    <%end%>
-  </ol>
+<div class='panel panel-default'>
+  <%@services.each do |f| %>
+    <div class="panel-heading">
+      <h3 class="panel-heading">服务名称：<%=f.title%></h3>
+    </div>
+    <div class="panel-body">
+      <p> 描述：</p>
+      <p><%=f.description %></p>
+    </div>
+  <%end%>
 </div>

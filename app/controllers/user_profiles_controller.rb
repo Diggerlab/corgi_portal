@@ -14,7 +14,10 @@ class UserProfilesController < ApplicationController
   def show
     @user_profile = current_user.user_profile
   end
-
+  
+  def edit
+   @user_profile = UserProfile.find(params[:id])  
+  end
 
   private
     def user_profile_params

@@ -1,12 +1,36 @@
+<h3 class="page-header">Help: This is going to be highlighted notices here.</h3>
+
 <div class = "container">
-<ol>
-  <%@app.each do |app|%>
-    <li>
-      游戏名称：<%=link_to app.name, app_app_services_path(app_id: app.id)%>
-    </li>
-  <%end%>
-</ol>
-<%=link_to '创建新游戏', new_app_path%>
+  <div class="row">
+      <div class="col-md-2"><%=link_to 'New', new_app_path%></div>
+      <div class="col-md-2"><%=link_to 'Change'%></div>
+      <div class="col-md-2"><%=link_to 'Disable'%></div>
+      <div class="col-md-2"><%=link_to 'Remove'%></div>
+  </div>
+  <div class= "table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Created at</th>
+          <th>State</th>
+          <th>Services</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <%@app.each do |app|%>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><%=app.name%></td>
+          <td><%=app.created_at%></td>
+          <td><%=app.state%></td>
+          <td><%=link_to "查看服务",service_details_app_path(id: app.id, service_id: @service.id)%></td>>
+        </tr>
+        <%end%>
+      </tbody> 
+    </table>
+  </div>
 </div>
 
   
