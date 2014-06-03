@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140603032147) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state"
+    t.boolean  "state"
   end
 
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
