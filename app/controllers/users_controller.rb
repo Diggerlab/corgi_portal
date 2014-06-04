@@ -5,7 +5,7 @@ class UsersController < Devise::RegistrationsController
     sign_up :user, resource
     resource = warden.authenticate!(user_params)
     sign_in :user, resource
-    redirect_to new_user_profile_path
+    redirect_to root_url
   end
 
   private
