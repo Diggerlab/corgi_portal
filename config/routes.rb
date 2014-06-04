@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     :registrations => 'users',
     :sessions => 'sessions'
   }
-  # resources :users
-  resources :user_profiles
+
+  resource :account
+  resource :profile
   resources :services, only: :index
   # post '/login', to: 'logins#create'
   # get '/login', to: 'logins#login', as: 'user_login' 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603032147) do
+ActiveRecord::Schema.define(version: 20140604031141) do
 
   create_table "app_services", force: true do |t|
     t.integer  "app_id"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20140603032147) do
 
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
 
+  create_table "profiles", force: true do |t|
+    t.string  "company",   null: false
+    t.string  "telephone"
+    t.integer "user_id"
+    t.string  "realname",  null: false
+    t.string  "title"
+    t.string  "qq"
+    t.string  "www"
+    t.string  "address"
+    t.string  "mobile"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "service_functions", force: true do |t|
     t.string  "title"
     t.string  "api"
@@ -46,12 +60,6 @@ ActiveRecord::Schema.define(version: 20140603032147) do
     t.string "title"
     t.string "state"
     t.string "description"
-  end
-
-  create_table "user_profiles", force: true do |t|
-    t.string  "company"
-    t.string  "telephone"
-    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

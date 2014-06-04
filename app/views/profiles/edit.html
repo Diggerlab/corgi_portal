@@ -1,0 +1,61 @@
+<h3>更新资料 <small>Update Info</small></h3> <hr/>
+<%= form_for @profile do |f|%>
+<div class="form-horizontal">
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Realname</label>
+    <div class="col-sm-6">
+      <%= f.text_field :realname, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Company</label>
+    <div class="col-sm-6">
+      <%= f.text_field :company, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-6">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-6">
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Mobile</label>
+    <div class="col-sm-6">
+      <%= f.text_field :mobile, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Tel</label>
+    <div class="col-sm-6">
+      <%= f.text_field :telephone, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Website</label>
+    <div class="col-sm-6">
+      <%= f.text_field :www, class: 'form-control' %>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">QQ</label>
+    <div class="col-sm-6">
+      <%= f.text_field :qq, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= f.submit :Submit, class: 'btn btn-primary btn-sm'%>
+    </div>
+    <div class="col-sm-offset-1" col-sm-3>
+      <%= link_to :Back, profile_url%>
+    </div>
+  </div>
+</div>
+<% end %>
