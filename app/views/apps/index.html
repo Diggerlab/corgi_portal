@@ -34,10 +34,10 @@
         <%@app.each do |app|%>
         <tr>
           <td><%= check_box_tag 'app_ids[]', app.id %></td>
-          <td><%=app.name%></td>
+          <td><%=link_to app.name, app_path(id: app.id)%></td>
           <td><%=app.created_at%></td>
           <td><%=app.state%></td>
-          <td><%=link_to "修改",service_details_app_path(id: app.id, service_id: @service.id)%></td>
+          <td><%=link_to "修改",edit_app_path(id: app.id)%></td>
         </tr>
         <%end%>
       </tbody> 

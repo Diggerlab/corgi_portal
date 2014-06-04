@@ -21,12 +21,16 @@ class AppsController < ApplicationController
 
   def update
     @app = current_user.apps.find(params[:id])
-    @app.update_attributes(app_params)
-    redirect_to apps
+    @app.update(app_params)
+    AppService.auth_service(@app, params['service_ids'])
+    redirect_to root_path
   end
 
   def edit
     @app = current_user.apps.find(params[:id])
+    @system_services = Service.where(state: 'system')
+    @user_services = Service.where(state: 'user')
+    @app_services = AppService.find_services(@app)
   end
 
   def service_details

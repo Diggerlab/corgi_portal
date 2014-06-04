@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <h1>APP</h1>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -24,8 +24,24 @@
     <%= f.text_field :www %>
   </div>
   
+  <h1>服务</h1>
+  系统服务</br>
+  <%@system_services.each do |sys|%>
+    <%= sys.title%></br>
+  <%end%>
+
+  用户可选服务</br>
+  <%@user_services.each do |service|%>
+    <%if @app_services.include? service%>
+      <%= check_box_tag 'service_ids[]', service.id, true %>
+    <%else%>
+      <%= check_box_tag 'service_ids[]', service.id %>
+    <%end%>
+      <%= service.title%></br>
+  <%end%>
+
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '更新'%>
   </div>
 <% end %>

@@ -12,10 +12,7 @@ class AppServicesController < ApplicationController
   end
 
   def index
-    @app = App.find(params[:app_id])
-    @system_services = Service.where(state: 'system')
-    @user_services = Service.where(state: 'user')
-    @app_services = AppService.find_services(@app)
+
   end
 
   def new
