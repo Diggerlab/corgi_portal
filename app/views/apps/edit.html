@@ -1,47 +1,44 @@
 <%= form_for(@app) do |f| %>
-  <% if @app.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+ <h1>APP</h1>
+  <div class="input-group">
+     <span class="input-group-addon">游戏名</span>
+     <%= f.text_field :name , class: "form-control"%>
 
-      <ul>
-      <% @app.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <h1>APP</h1>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+     <span class="input-group-addon">类型</span>
+     <%= f.text_field :category , class: "form-control"%>
+
+     <span class="input-group-addon">网址地址</span>
+     <%= f.text_field :www , class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :www %><br />
-    <%= f.text_field :www %>
-  </div>
+ 
   
-  <h1>服务</h1>
-  系统服务</br>
+<h1>服务</h1>
+  系统服务
   <%@system_services.each do |sys|%>
     <%= sys.title%></br>
   <%end%>
-
   用户可选服务</br>
-  <%@user_services.each do |service|%>
-    <%if @app_services.include? service%>
-      <%= check_box_tag 'service_ids[]', service.id, true %>
-    <%else%>
-      <%= check_box_tag 'service_ids[]', service.id %>
-    <%end%>
-      <%= service.title%></br>
-  <%end%>
 
-  
-  <div class="actions">
-    <%= f.submit '更新'%>
+    <div class="input-group">
+      <%@user_services.each do |service|%>
+        <span class="input-group-addon">
+          <%if @app_services.include? service%>
+            <%= check_box_tag 'service_ids[]', service.id, true %>
+          <%else%>
+            <%= check_box_tag 'service_ids[]', service.id %>
+          <%end%>
+            <%= service.title%></br>
+        </span>
+      <%end%>
+    </div>
+  <hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= f.submit :Submit, class: 'btn btn-primary btn-sm'%>
+    </div>
+    <div class="col-sm-offset-1 col-sm-3">
+      <%= link_to :Back, apps_url, class: 'btn btn-primary btn-sm'%>
+    </div>
   </div>
+
 <% end %>

@@ -6,7 +6,12 @@
     游戏网址：<%= f.text_field :www, placeholder: 'www.game.com', class: 'form-control', required: true, autofocus: true%></br>
     游戏类别：<%= f.text_field :category, placeholder: 'app', class: 'form-control', required: true, autofocus: true%></br>
     游戏平台：<%= f.text_field :platform, placeholder: 'diggerlab', class: 'form-control', required: true, autofocus: true%></br>
-  <div class="actions">
-    <%= f.submit "下一步"%>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= f.submit :Submit, class: 'btn btn-primary btn-sm'%>
+    </div>
+    <div class="col-sm-offset-1" col-sm-3>
+      <%= link_to :Back, apps_url%>
+    </div>
   </div>
 <%end%>

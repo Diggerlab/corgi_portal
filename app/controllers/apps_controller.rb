@@ -23,7 +23,7 @@ class AppsController < ApplicationController
     @app = current_user.apps.find(params[:id])
     @app.update(app_params)
     AppService.auth_service(@app, params['service_ids'])
-    redirect_to root_path
+    redirect_to apps_path
   end
 
   def edit
