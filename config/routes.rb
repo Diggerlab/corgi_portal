@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     :registrations => 'users',
     :sessions => 'sessions'
   }
+
+  resource :account
   resource :profile
   resources :services, only: :index
   # post '/login', to: 'logins#create'
