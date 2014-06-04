@@ -5,8 +5,8 @@ class AppsController < ApplicationController
   end
   def show
     @app = current_user.apps.find(params[:id])
-    @service = Service.first
-    @service_functions = @service.service_functions
+    @app_services = @app.app_services
+    
   end
 
   def create
