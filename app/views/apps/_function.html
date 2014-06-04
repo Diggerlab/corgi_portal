@@ -1,0 +1,26 @@
+<h>
+<div class="row">
+    <div class="col-md-8"><%=@app.name%></div>
+    <div class="col-md-4"><%= link_to "Change settings", edit_app_path(id: @app.id)  %></div>
+</div>
+<hr>
+</h>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+<div class="panel-heading"><%=current_user.email%> created at <%=@app.created_at%></div>
+<div class="panel-body">
+  <p>公司信息：<%=current_user.profile.company%> || 游戏种类：<%=@app.category%> || 游戏地址：<%=@app.www%></p>
+  <p>
+    你当前已经选择<%=@app.app_services.count%>个服务
+  </p>
+</div>
+</div>
+
+
+
+<ul class="nav nav nav-pills" id="functions">
+  <%@app.app_services.each do |as|%>
+    <li class=''><%=link_to as.service.title, '#', {class: as.service.code} %></li>
+  <%end%>
+</ul>
+
