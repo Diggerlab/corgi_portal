@@ -11,7 +11,7 @@ class AppsController < ApplicationController
 
   def create
     @app = current_user.apps.create!(app_params)
-    redirect_to app_app_services_url(app_id: @app.id)
+    redirect_to edit_app_url(id: @app.id)
   end
 
   def index
@@ -64,6 +64,6 @@ class AppsController < ApplicationController
   private
     def app_params
       params.require(:app).permit(:id, :user_id, :name, :www, :category, 
-        :platform, :created_at)
+        :platform, :created_at, :state)
     end
 end
