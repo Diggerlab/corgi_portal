@@ -1,4 +1,8 @@
-<h>
+<ol class="breadcrumb">
+  <li><a href="#">Console</a></li>
+  <li><a href="#">Apps</a></li>
+  <li class="active"><%=@app.name%></li>
+</ol>
 <div class="row">
     <div class="col-md-8"><%=@app.name%></div>
     <div class="col-md-4"><%= link_to "Change settings", edit_app_path(id: @app.id), class: 'btn btn-primary btn-sm'  %></div>
