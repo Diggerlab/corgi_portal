@@ -1,52 +1,58 @@
 <%= form_for(@app) do |f| %>
  <h1>APP</h1>
-  <%= check_box_tag 'app[state]', true, true %>state
-
 
   <div class="form-horizontal">
+   <div class="form-group">
+      <label class="col-sm-2 control-label">state</label>
+      <div class="col-sm-6">
+        <%= check_box_tag 'app[state]', true, true %>
+      </div>
+   </div>
+   
     <div class="form-group">
       <label class="col-sm-2 control-label">游戏名</label>
       <div class="col-sm-6">
-      <%= f.text_field :name , class: "form-control"%>
+        <%= f.text_field :name , class: "form-control"%>
       </div>
     </div>
 
     <div class="form-group">
       <label class="col-sm-2 control-label">类型</label>
       <div class="col-sm-6">
-      <%= f.text_field :category , class: "form-control"%>
+        <%= f.text_field :category , class: "form-control"%>
       </div>
     </div>
 
     <div class="form-group">
       <label class="col-sm-2 control-label">网址地址</label>
       <div class="col-sm-6">
-      <%= f.text_field :www , class: "form-control"%>
+        <%= f.text_field :www , class: "form-control"%>
       </div>
     </div>
 
-  </div>
-
-  
-<h1>服务</h1>
-  系统服务
-  <%@system_services.each do |sys|%>
-    <%= sys.title%></br>
-  <%end%>
-  用户可选服务</br>
-
-    <div class="input-group">
-      <%@user_services.each do |service|%>
-        <span class="input-group-addon">
+    <h1>服务</h1>
+    系统服务<br/>
+    <%@system_services.each do |sys|%>
+      <%= sys.title%></br>
+    <%end%>
+    用户可选服务</br>
+    
+    <%@user_services.each do |service|%>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"> <%= service.title%></label>
+        <div class="col-sm-6">
           <%if @app_services.include? service%>
             <%= check_box_tag 'service_ids[]', service.id, true %>
           <%else%>
             <%= check_box_tag 'service_ids[]', service.id %>
           <%end%>
-            <%= service.title%></br>
-        </span>
-      <%end%>
-    </div>
+        </div>   
+      </div>
+    <%end%>
+
+
+  </div>
+
   <hr>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-2">
