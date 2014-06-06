@@ -52,7 +52,7 @@ class AppsController < ApplicationController
     redirect_to apps_url
   end
 
-  def toggle_state
+  def toggle
     select_ids =params[:ids].split(',')
     @app = App.where(id: select_ids)
     @app.each do |app|

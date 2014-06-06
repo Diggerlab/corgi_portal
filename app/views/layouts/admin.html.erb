@@ -25,12 +25,9 @@
 <% end %>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Corgi Console</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
@@ -46,7 +43,8 @@
 <div class="row">
   <div class="col-md-3">
     <ul id="admin_menu" class="nav nav-pills nav-stacked">
-      <li class="active"><a href="/apps">Apps</a></li>
+      <li><a href="/">Console</a></li>
+      <li><a href="/apps">Apps</a></li>
       <li><a href="/services">Services</a></li>
       <li><%= link_to "Account", account_path %></li>
       <li><%=link_to "Profile", profile_path %></li>
@@ -65,15 +63,6 @@
     </div>
   </div>
 </footer>
-<script type="text/javascript">
-$(function(){
-    var current_link = $("#admin_menu").find('a[href="<%=request.path%>"]');
-    if(current_link){
-      $("#admin_menu").children("li").removeClass();
-      current_link.parents('li').addClass('active');
-    }
-});
-</script>
 </body>
 </html>
 

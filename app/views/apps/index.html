@@ -1,75 +1,44 @@
-<ol class="breadcrumb">
-  <li><a href="/">Console</a></li>
-  <li><a href="/apps">Apps</a></li>
-</ol>
-<div class="well well-sm">Help: This is going to be highlighted notices here.</div>
-<div class = "">
-    <div class="row">
-      <div class="col-md-2 btn-group">
-       <%=link_to 'New', new_app_path, class: 'btn btn-primary btn-sm'%> 
-      </div>
-
-      <div class="col-md-2 btn-group">
-        <%= button_to :Delete, '/apps/remove', method: :delete, id: 'btn-delete', 
-        data: {confirm: "你确定删除吗?"}, class: 'btn btn-primary btn-sm'%>
-      </div>
-
-      <div class="col-md-2 btn-group">
-        <%= button_to "Toggle State", '/apps/toggle_state', method: :put, id: 'toggle-state', 
-        data: {confirm: "你确定修改吗?"}, class: 'btn btn-primary btn-sm'%>
-      </div>
-
-    </div>
-     
-
-  <div class= "table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Created at</th>
-          <th>State</th>
-          <th>Services</th>
-        </tr>
-      </thead> 
-      <tbody>
-        <%@app.each do |app|%>
-        <tr>
-          <td><%= check_box_tag 'app_ids[]', app.id %></td>
-          <td><%=link_to app.name, app_path(id: app.id), class: 'btn btn-primary btn-sm'%></td>
-          <td><%=app.created_at%></td>
-          <td><%=app.state%></td>
-          <td><%=link_to "修改",edit_app_path(id: app.id), class: 'btn btn-primary btn-sm'%></td>
-        </tr>
-        <%end%>
-      </tbody> 
-    </table>
-  </div>
+<div class="btn-group">
+  <button type="button" class="btn btn-default" id="btn-new">
+    <span class="glyphicon glyphicon-plus"></span> New
+  </button>
+  <button type="button" class="btn btn-default" id="btn-remove">
+    <span class="glyphicon glyphicon-minus"></span> Delete 
+  </button>
+  <button type="button" class="btn btn-default" id="btn-toggle">
+    <span class="glyphicon glyphicon-ok"></span> Toggle
+  </button>
+  <%= form_tag '/apps/remove', id: 'remove_form', method: 'delete' do %>
+  <%= hidden_field_tag :ids %>
+  <% end %>
+  <%= form_tag '/apps/toggle', id: 'toggle_form', method: 'put' do %>
+  <%= hidden_field_tag :ids %>
+  <% end %>
 </div>
+<br>
+<br>
 
-<script type="text/javascript">
-$('#btn-delete').click(function(){
-  var ids = [];
-  $("input:checked").each(function(index, control){
-    ids.push($(control).val());
-  });
-  
-  $(this).parents('form').append("<input type='hidden' name='ids' value='"+ ids +"'>")
-  $(this).parents('form').submit();
-
-})
-
-$('#toggle-state').click(function(){
-  var ids = [];
-  $("input:checked").each(function(index, control){
-    ids.push($(control).val());
-  });
-
-  $(this).parents('form').append("<input type='hidden' name='ids' value='"+ ids +"'>")
-  $(this).parents('form').submit();
-})
-
-
-</script>
-  
+<div class= "table-responsive">
+  <table class="table table-striped" id="apps_table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Created at</th>
+        <th>State</th>
+        <th>Manage</th>
+      </tr>
+    </thead> 
+    <tbody>
+    <%@app.each do |app|%>
+    <tr>
+      <td><%= check_box_tag 'app_ids[]', app.id %></td>
+      <td><%=link_to app.name, app_path(id: app.id), class: ''%></td>
+      <td><%=app.created_at%></td>
+      <td><%=app.state%></td>
+      <td><%=link_to "Edit", edit_app_path(id: app.id), class: 'btn btn-primary btn-sm'%></td>
+    </tr>
+    <%end%>
+    </tbody> 
+  </table>
+</div>

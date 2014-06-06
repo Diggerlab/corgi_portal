@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :app_services
     collection do 
       delete :remove
-      put :toggle_state
+      put :toggle
     end
     member do 
       get 'service_details/:service_id', to: 'apps#service_details', as: 'service_details'
