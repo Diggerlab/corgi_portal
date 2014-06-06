@@ -1,17 +1,35 @@
+<ol class="breadcrumb">
+  <li><a href="/">Console</a></li>
+  <li><a href="/apps">Apps</a></li>
+  <li><a href="">New</a></li>
+</ol>
 <p>
 创建游戏：
 </p>
-<%= form_for @app do |f| %>
+<div class="form-horizontal">
+  <%= form_for @app do |f| %>
     游戏名称：<%= f.text_field :name, placeholder: 'name', class: 'form-control', required: true, autofocus: true%></br>
     游戏网址：<%= f.text_field :www, placeholder: 'www.game.com', class: 'form-control', required: true, autofocus: true%></br>
     游戏类别：<%= f.text_field :category, placeholder: 'app', class: 'form-control', required: true, autofocus: true%></br>
     游戏平台：<%= f.text_field :platform, placeholder: 'diggerlab', class: 'form-control', required: true, autofocus: true%></br>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-2">
-      <%= f.submit :Submit, class: 'btn btn-primary btn-sm'%>
+
+    <p>创建服务:</p>
+    <%@user_services.each do |service|%>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"> <%= service.title%></label>
+        <div class="col-sm-6">
+          <%= check_box_tag 'service_ids[]', service.id %>
+        </div>   
+      </div>
+    <%end%>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <%= f.submit :Submit, class: 'btn btn-primary btn-sm'%>
+      </div>
+
+      <div class="col-sm-offset-1" col-sm-3>
+        <%= link_to :Back, apps_url%>
+      </div>
     </div>
-    <div class="col-sm-offset-1" col-sm-3>
-      <%= link_to :Back, apps_url%>
-    </div>
-  </div>
-<%end%>
+  <%end%>
+</div>

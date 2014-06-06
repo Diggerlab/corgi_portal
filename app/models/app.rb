@@ -5,9 +5,11 @@ class App < ActiveRecord::Base
   after_create :create_sys_services
 
   def create_sys_services
+    self.state = true
     @services = Service.where(state: 'system')
     @services.each do |ser|
       AppService.create(app_id: self.id, service_id: ser.id, state: ser.state)
     end
+    self.save!
   end
 end

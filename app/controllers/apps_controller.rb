@@ -2,6 +2,7 @@ class AppsController < ApplicationController
   before_action :authenticate_user!
   def new
     @app = current_user.apps.new
+    @user_services = Service.where(state: 'user')
   end
   def show
     @app = current_user.apps.find(params[:id])
@@ -11,7 +12,8 @@ class AppsController < ApplicationController
 
   def create
     @app = current_user.apps.create!(app_params)
-    redirect_to edit_app_url(id: @app.id)
+    AppService.auth_service(@app, params['service_ids'])
+    redirect_to apps_url
   end
 
   def index
