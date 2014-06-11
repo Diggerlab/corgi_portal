@@ -16,7 +16,7 @@ activateSubmenu = () ->
     $("#admin_menu").children("li").removeClass()
     current_link.parents('li').addClass('active')
 
-$ ->
+$(document).on 'page:change', ->
   activateSubmenu()
 
   $("#btn-new").click (e) ->
