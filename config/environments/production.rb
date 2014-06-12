@@ -82,3 +82,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+GAME_API = "http://gts.api.engine.com:3001/corgi"
+
+
