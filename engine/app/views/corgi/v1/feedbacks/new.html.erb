@@ -1,0 +1,20 @@
+<%= render 'form' %>
+<% @feedbacks.each do |feed| %>
+<table class="table" border="0">
+<thread>
+<tr >
+  <th>回复数</th>
+  <th>内容</th>
+  <th>时间</th>
+</tr>
+</thread>
+<tbody>
+<tr>
+  <td><%= feed.responses_count %></td>
+  <td><%= link_to change_content(feed.content), new_v1_feedback_response_path(feed.id, token: @token), :class => 'btn btn-large'%></td>
+  <td><%= customize_time(feed.created_at.localtime) %></td>
+</tr>
+</tbody>
+</table>
+  
+<% end %>

@@ -1,0 +1,10 @@
+<ul>
+  <% feedback.responses.each do |response| %>
+  <li>
+    Response_id: <%=response.id %> 
+    Response_content: <%= response.content %>
+    Response_contact: <%= response.contact%> 
+    Created_at: <%= response.created_at%>
+  </li>
+  <% end %>
+</ul>

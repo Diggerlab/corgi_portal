@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Corgi::Engine => "/api"
   devise_for :users, :controllers => {
     :registrations => 'users',
     :sessions => 'sessions'

@@ -1,0 +1,22 @@
+<head>
+<script>
+function myFunction(){
+  var tb_password = document.getElementById("user_password");
+  tb_password.type = (tb_password.type == 'text') ? 'password' : 'text';
+}
+</script>
+</head>
+<body>
+
+<h2 class = "form-signin-heading">Login</h2>
+<%= form_for :user,:html=>{:class=> "form-signin"}, :url=>{:controller=>"logins",:action=>"login"} do |f| %>
+    <input class="form-control" id="user_email" name= "email" type="text" placeholder="Email address" required autofocus /></br>
+    <input class="form-control" id="user_password" name="password" placeholder="password" type="password" required/></br>
+  <input onclick="myFunction()" type="checkbox" name="show"/>show password<br/>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+    <%= link_to '忘记秘密', new_v1_password_request_path%> 
+<%end%>
+
+</body>

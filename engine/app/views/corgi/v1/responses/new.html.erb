@@ -1,0 +1,19 @@
+<%= @feedback.content%><br/>
+<br/>
+<% @responses.each do |res|%>
+<%= res.user.email%>
+  <%="回复"%>:
+<table width="30" height="50" border="1">
+<tr>
+  <td>
+    <%= res.content%>
+  </td>
+  <td>
+  <%if res.created_at != nil%>
+  <%= customize_time(res.created_at.localtime) %><br/>
+  <%end%>
+  </td>
+</tr>
+</table>
+<% end %>
+<%= render 'form' %>

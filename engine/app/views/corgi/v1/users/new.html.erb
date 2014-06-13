@@ -1,0 +1,17 @@
+<h1>注册</h1>
+
+<script>
+function myFunction(){
+  var tb_password = document.getElementById("user_password");
+  tb_password.type = (tb_password.type == 'text') ? 'password' : 'text';
+}
+</script>
+
+<%= form_for :user, :html=>{:class=> "form-signin"}, :url=>{:controller=>"users",:action=>"create"} do |f| %>
+  <input class="form-control" id="user_email" name= "email" type="text" placeholder="Email" required autofocus/></br>
+  <input class="form-control" id="user_password" name="password" type="password" placeholder="Password" required/></br>
+  <input onclick="myFunction()" type="checkbox" name="show"/>show password<br/>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+<%end%>

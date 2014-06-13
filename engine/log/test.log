@@ -1,0 +1,683 @@
+  [1m[36mActiveRecord::SchemaMigration Load (32.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (21.3ms)[0m  INSERT INTO `build_versions` (`base_build`, `created_at`, `latest_build`, `latest_description`, `latest_url`, `latest_version`, `published_at`, `publisher`, `updated_at`) VALUES (1, '2014-05-12 09:19:15', 1, 'MyText', 'MyString', 'MyString', '2014-03-31 16:23:12', 1, '2014-05-12 09:19:15')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by BuildVersionsController#index as 
+  Parameters: {"publisher"=>"1", "build"=>"2"}
+  [1m[35mBuildVersion Load (0.4ms)[0m  SELECT `build_versions`.* FROM `build_versions` WHERE `build_versions`.`publisher` = '1' LIMIT 1
+  Rendered build_versions/index.json.rabl (13.2ms)
+Completed 200 OK in 72ms (Views: 54.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (15.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `build_versions` (`base_build`, `created_at`, `latest_build`, `latest_description`, `latest_url`, `latest_version`, `published_at`, `publisher`, `updated_at`) VALUES (1, '2014-05-12 09:19:16', 1, 'MyText', 'MyString', 'MyString', '2014-03-31 16:23:12', 1, '2014-05-12 09:19:16')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by BuildVersionsController#index as 
+  Parameters: {"publisher"=>"1", "build"=>"0"}
+  [1m[35mBuildVersion Load (8.7ms)[0m  SELECT `build_versions`.* FROM `build_versions` WHERE `build_versions`.`publisher` = '1' LIMIT 1
+Completed 200 OK in 12ms (Views: 1.7ms | ActiveRecord: 8.7ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthentication Load (0.3ms)[0m  SELECT `authentications`.* FROM `authentications` WHERE `authentications`.`token` = 'test' AND `authentications`.`provider` = 'sina' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'u$2a$10$noWrRuEGgg4lAKEYAK.l2O3OxDgdTQWRJA5LEVFFP.6HhPDldDi6O@fake-email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('6oDkzPMX4wzJgkKvyapN', '2014-05-12 09:19:16', '2014-05-12 09:19:16', 'u$2a$10$noWrRuEGgg4lAKEYAK.l2O3OxDgdTQWRJA5LEVFFP.6HhPDldDi6O@fake-email.com', '$2a$10$uvt6JTTW8xQDdEw/VfNsgu0k4NNrSWdir8InLT.yvBJIL6Ikgjxee', 'user', 'pending', '2014-05-12 09:19:16')
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:16', '2014-05-12 09:19:16', 1, 20)[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ua7rrtuy', 1)
+  [1m[36mAuthentication Load (16.0ms)[0m  [1mSELECT `authentications`.* FROM `authentications` WHERE `authentications`.`user_id` = 1 AND `authentications`.`provider` = 'sina' AND `authentications`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `authentications` (`created_at`, `expired_at`, `provider`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:16', '2014-05-12 09:19:52', 'sina', 'test', '2014-05-12 09:19:16', 1)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('FHtzM4xCpoZykwb2hPrq', '2014-05-12 09:19:16', '2014-05-12 09:19:16', 'test1@test.com', '$2a$10$QuGFbTpBo.eAI5RchRbGkOkeJfAZOF3T2Gp5t38W23cq90LH4/sPi', 'user', 'pending', '2014-05-12 09:19:16')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:16', '2014-05-12 09:19:16', 2, 20)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uhj5cgna', 2)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (11.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('nowhJ3cWrEd8YGxYkC1Q', '2014-05-12 09:19:16', '2014-05-12 09:19:16', 'test2@test.com', '$2a$10$YT7wAvppNZaLtvt/skG7quEfMPTOybFKW9wDhk8.z.4yLiJHRcmvy', 'user', 'pending', '2014-05-12 09:19:16')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:16', '2014-05-12 09:19:16', 3, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uvd83cbj', 3)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 111111111 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `authentications` (`created_at`, `provider`, `token`, `token_secret`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:16', 'sina', 'test', '111', '2014-05-12 09:19:16', 111111111)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAuthentication Load (0.3ms)[0m  SELECT `authentications`.* FROM `authentications` WHERE `authentications`.`token` = 'test' AND `authentications`.`provider` = 'sina' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 111111111 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'u$2a$10$uS8CGPY0dp/W8IeNSsgTmeQDMECs4rthVpdJLhJ4NxgfeubI6IAr.@fake-email.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('jmYNTGxLGHn9jmxhYK1H', '2014-05-12 09:19:16', '2014-05-12 09:19:16', 'u$2a$10$uS8CGPY0dp/W8IeNSsgTmeQDMECs4rthVpdJLhJ4NxgfeubI6IAr.@fake-email.com', '$2a$10$UEHRpiBB4mpisezjgqFYee7mZer4OF606LaNYFnkvQH6zRkdBEXMq', 'user', 'pending', '2014-05-12 09:19:16')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:16', '2014-05-12 09:19:16', 4, 20)[0m
+  [1m[35mSQL (12.1ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uc8c5spk', 4)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('Kw8exyvo9yGedJygxNfc', '2014-05-12 09:19:16', '2014-05-12 09:19:16', 'test3@test.com', '$2a$10$Ez3NhphDIIFv5wvc8B1MbufR8JqV7vAqe0XssWtJ3zqRlwqvOYUqa', 'user', 'pending', '2014-05-12 09:19:16')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:16', '2014-05-12 09:19:16', 5, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u7mvuy6r', 5)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test4@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('w7Hko3PUzymeae6fssGw', '2014-05-12 09:19:17', '2014-05-12 09:19:17', 'test4@test.com', '$2a$10$gsSSsCXKw94Ymq5I524KjuYlu0rQ.0EQhBkPuUwrQ6xaZD9v0xLT6', 'user', 'pending', '2014-05-12 09:19:17')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:17', '2014-05-12 09:19:17', 6, 20)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ugxsy6q3', 6)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'test4@test.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test4@test.com' AND `users`.`id` != 6) LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test5@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('wzYQGMFKnwfGy19YN56V', '2014-05-12 09:19:17', '2014-05-12 09:19:17', 'test5@test.com', '$2a$10$rT.ZiFSAerQRqCPOsDrSqef5z4zmnn/InHZ4jzwcOSNKlpRJEu3sW', 'user', 'pending', '2014-05-12 09:19:17')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:17', '2014-05-12 09:19:17', 7, 20)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uuq6kdhf', 7)
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mAccount Load (0.4ms)[0m  SELECT `accounts`.* FROM `accounts` WHERE `accounts`.`user_id` = 7 ORDER BY `accounts`.`id` ASC LIMIT 1
+  [1m[36m (15.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test6@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('AzxAa9Nq9X4jxKYuAhur', '2014-05-12 09:19:17', '2014-05-12 09:19:17', 'test6@test.com', '$2a$10$x7MjUI9O.YyCFhrfHIMp1O8f9BUu7qQgdMtEgMx6FGDcK8ayd7OW6', 'user', 'pending', '2014-05-12 09:19:17')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:17', '2014-05-12 09:19:17', 8, 20)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uhw56567', 8)[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUserCode Load (0.4ms)[0m  [1mSELECT `user_codes`.* FROM `user_codes` WHERE `user_codes`.`user_id` = 8 ORDER BY `user_codes`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by SessionsController#sina_callback as JSON
+  Parameters: {"token"=>"test"}
+Completed 401 Unauthorized in 537ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by SessionsController#qq_callback as JSON
+  Parameters: {"weibo_access_token"=>"396E3E0FBFB2635428F4CAEAD986F1B8", "client_id"=>"100330589", "open_id"=>"049005BE2B6A55FEF9E95D08E22DCF58", "expires_in_sec"=>"123"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthentication Load (0.4ms)[0m  [1mSELECT `authentications`.* FROM `authentications` WHERE `authentications`.`token` = '396E3E0FBFB2635428F4CAEAD986F1B8' AND `authentications`.`provider` = 'qq' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'u$2a$10$X0kJ9MbcONbg3nT/U0CJWumBdKWaBWt/ibB2RfIXQ240630.Mn41G@fake-email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('MPhNt94j2ueP9xpWeD9b', '2014-05-12 09:19:18', '2014-05-12 09:19:18', 'u$2a$10$X0kJ9MbcONbg3nT/U0CJWumBdKWaBWt/ibB2RfIXQ240630.Mn41G@fake-email.com', '$2a$10$bcZrFv8w4s2nFER9PSQ5JulTr4NPMQePvhEkqE4KskNQc1ojh99NW', 'user', 'pending', '2014-05-12 09:19:18')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:18', '2014-05-12 09:19:18', 9, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ub9h8hyu', 9)[0m
+  [1m[35mAuthentication Load (0.3ms)[0m  SELECT `authentications`.* FROM `authentications` WHERE `authentications`.`user_id` = 9 AND `authentications`.`provider` = 'qq' AND `authentications`.`user_id` = 9 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `authentications` (`created_at`, `expired_at`, `openid`, `openkey`, `provider`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:18', '2014-05-12 09:21:21', '049005BE2B6A55FEF9E95D08E22DCF58', '100330589', 'qq', '396E3E0FBFB2635428F4CAEAD986F1B8', '2014-05-12 09:19:18', 9)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 451ms (Views: 5.3ms | ActiveRecord: 2.5ms)
+  [1m[36m (0.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by SessionsController#qq_callback as JSON
+  Parameters: {"token"=>"test"}
+Completed 401 Unauthorized in 260ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by SessionsController#sina_callback as JSON
+  Parameters: {"weibo_access_token"=>"2.00t34dVF0WNxEs763d92c0590oRzcf", "expires_in_sec"=>"123"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthentication Load (0.3ms)[0m  SELECT `authentications`.* FROM `authentications` WHERE `authentications`.`token` = '2.00t34dVF0WNxEs763d92c0590oRzcf' AND `authentications`.`provider` = 'sina' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'u$2a$10$gFffApTtCEh38PDX9Tx5Yuct6/hMlA/aZjvdVj0hw5Gnt/czvxMcm@fake-email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('zxmM39yu74EuGFDJsqmt', '2014-05-12 09:19:19', '2014-05-12 09:19:19', 'u$2a$10$gFffApTtCEh38PDX9Tx5Yuct6/hMlA/aZjvdVj0hw5Gnt/czvxMcm@fake-email.com', '$2a$10$E9z8CFTAGnX74KD1/XaiEOxum.E5lhdwY6duAjtZgmLEsVe2cPiCC', 'user', 'pending', '2014-05-12 09:19:19')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:19', '2014-05-12 09:19:19', 10, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('utux6x43', 10)
+  [1m[36mAuthentication Load (0.3ms)[0m  [1mSELECT `authentications`.* FROM `authentications` WHERE `authentications`.`user_id` = 10 AND `authentications`.`provider` = 'sina' AND `authentications`.`user_id` = 10 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `authentications` (`created_at`, `expired_at`, `provider`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:19', '2014-05-12 09:21:22', 'sina', '2.00t34dVF0WNxEs763d92c0590oRzcf', '2014-05-12 09:19:19', 10)
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 937ms (Views: 1.0ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('fyBXD1Tht2eQjsFHZhqp', '2014-05-12 09:19:19', '2014-05-12 09:19:19', 'test@test.com', '$2a$10$okfqS9IENXPWSVTZwPhzIu4yejrnC2z4c2neQazbCdJInBgL5NKiS', 'user', 'pending', '2014-05-12 09:19:19')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:19', '2014-05-12 09:19:19', 11, 20)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ua92qnvm', 11)
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `feedbacks` (`contact`, `content`, `created_at`, `ip`, `updated_at`, `user_id`) VALUES ('test@test.com', 'feedback', '2014-05-12 09:19:19', '127.0.0.1', '2014-05-12 09:19:19', 11)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `feedbacks` (`contact`, `content`, `created_at`, `ip`, `updated_at`, `user_id`) VALUES ('test@test.com', 'feedback', '2014-05-12 09:19:19', '127.0.0.1', '2014-05-12 09:19:19', 11)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by FeedbacksController#index as JSON
+  Parameters: {"token"=>"fyBXD1Tht2eQjsFHZhqp"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'fyBXD1Tht2eQjsFHZhqp' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'fyBXD1Tht2eQjsFHZhqp' LIMIT 1[0m
+  [1m[35mFeedback Load (0.4ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE `feedbacks`.`user_id` = 11 ORDER BY created_at DESC
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('gJb2hcNy9qzXSx5htkCR', '2014-05-12 09:19:19', '2014-05-12 09:19:19', 'test@test.com', '$2a$10$Q0BX83bNbAyawyzjei6an.JJ5LyLy6lHIaKrmIvGaUe4I7b7k9BSS', 'user', 'pending', '2014-05-12 09:19:19')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 12, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ugbv93jg', 12)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'g@g.com', '127.0.0.1', 'pending', '2014-05-12 09:19:20', 12)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PasswordRequestsController#create as JSON
+  Parameters: {"password_request"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('oPQx61Tkxtg3fxXNghms', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$.UDMaCew.1aqgn42l0FeQOuAeaS7IIecjvzqD6lUdifkTB0y3Zv4i', 'user', 'pending', '2014-05-12 09:19:20')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 13, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uqhwk8ff', 13)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('2ud8bDQvxuZrKTxzGgrx', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$oiQfZozBuvNpSZ78vhNB/OntHMSJE1lo.JEK0E9EyW5XMh2G7gUd6', 'user', 'pending', '2014-05-12 09:19:20')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 14, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ujm3h3h7', 14)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '127.0.0.1', 'pending', 'qweqweqwe', '2014-05-12 09:19:20', 14)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PasswordRequestsController#change_password as JSON
+  Parameters: {"token"=>"qweqweqwe", "change_password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('exWsxgApqhzGbbJmsDWs', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$TiIcso8UWYcR4NhY9pgbc.FHLE1wgVrSv7CIU63hBVCQxfbOb1uX6', 'user', 'pending', '2014-05-12 09:19:20')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 15, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u53ggjka', 15)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '127.0.0.1', 'pending', 'qweqweqwe', '2014-05-12 09:19:20', 15)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PasswordRequestsController#change_password as JSON
+  Parameters: {"password_request"=>"[FILTERED]", "change_password"=>"[FILTERED]"}
+  [1m[36mPasswordRequest Load (0.3ms)[0m  [1mSELECT `password_requests`.* FROM `password_requests` WHERE `password_requests`.`token` = 'qweqweqwe' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test@test.com' AND `users`.`id` != 15) LIMIT 1
+  [1m[36mSQL (27.0ms)[0m  [1mUPDATE `users` SET `password` = '$2a$10$jt8pC13v2knCF2dnGZUcDur4M1adWNFdOIr5N9w9t/6417FJrsv1m', `updated_at` = '2014-05-12 09:19:20' WHERE `users`.`id` = 15[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `password_requests` SET `state` = 'finished', `updated_at` = '2014-05-12 09:19:20' WHERE `password_requests`.`id` = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 125ms (Views: 11.9ms | ActiveRecord: 29.1ms)
+  [1m[35m (16.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('xmBHiymi2knyBm6k9PP9', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$r6dV4FduMGODULGOQGQRHO1rz15G1ZnWrLq7VcvpG9lIY5B6Y5SGa', 'user', 'pending', '2014-05-12 09:19:20')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 16, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u4979hem', 16)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '127.0.0.1', 'finished', 'qweqweqwe', '2014-05-12 09:19:20', 16)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PasswordRequestsController#change_password as JSON
+  Parameters: {"token"=>"qweqweqwe", "change_password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 0ms
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('saeqdey4GLDyAaPEpoTE', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$N0On9bYkEJQ63/oHFzCTdenZGpFyGAuRKfnvLvNxd58xHgr8uLgqm', 'user', 'pending', '2014-05-12 09:19:20')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 17, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uwwnu576', 17)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '127.0.0.1', 'pending', 'qweqweqwe', '2014-05-12 09:19:20', 17)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PasswordRequestsController#new_password as HTML
+  Parameters: {"token"=>"qqqqqqqq"}
+  [1m[35mPasswordRequest Load (0.3ms)[0m  SELECT `password_requests`.* FROM `password_requests` WHERE `password_requests`.`token` = 'qqqqqqqq' AND `password_requests`.`state` = 'pending' LIMIT 1
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('PBV1RudtN67sxw1Rv6qp', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$1wXJhFJl/wEPw.dUNRNqq.2A8vXRdcjGr9LvXEyUJvtrZPNQeKc0m', 'user', 'pending', '2014-05-12 09:19:20')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 18, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ugksrxx4', 18)[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '127.0.0.1', 'pending', 'qweqweqwe', '2014-05-12 09:19:20', 18)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PasswordRequestsController#new_password as HTML
+  Parameters: {"token"=>"qweqweqwe"}
+  [1m[35mPasswordRequest Load (0.3ms)[0m  SELECT `password_requests`.* FROM `password_requests` WHERE `password_requests`.`token` = 'qweqweqwe' AND `password_requests`.`state` = 'pending' LIMIT 1
+  [1m[36mPasswordRequest Load (0.2ms)[0m  [1mSELECT `password_requests`.* FROM `password_requests` WHERE `password_requests`.`token` = 'qweqweqwe' LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('uCNs1JZRAemiSdcfxnN2', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test@test.com', '$2a$10$Ezilgq02kzEmwqZXlQ3yyeGwysJFzBJlsQOG1tK5zEl6sWdhY5w/O', 'user', 'pending', '2014-05-12 09:19:20')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:20', '2014-05-12 09:19:20', 19, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u3wu5453', 19)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PasswordRequestsController#create as JSON
+  Parameters: {"email"=>"test@test.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'test@test.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `password_requests` (`created_at`, `email`, `ip`, `state`, `token`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:20', 'test@test.com', '0.0.0.0', 'pending', 'obRGxZjQWsgV6EZngz2A', '2014-05-12 09:19:20', 19)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+Sent mail to test@test.com (11.1ms)
+Date: Mon, 12 May 2014 17:19:20 +0800
+From: from@example.com
+To: test@test.com
+Message-ID: <53709218ecccc_e098082dbf8130e5@daneil.mail>
+Subject: Welcome
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      To change the password, just follow this link: http://localhost:3000/password_requests/new_password/?token=obRGxZjQWsgV6EZngz2A.
+    </p>
+    <p>Thanks for use  our web!</p>
+  </body>
+</html>
+Completed 200 OK in 70ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+  [1m[35m (15.9ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('q5uCwyEzpCVvaC8M1sCW', '2014-05-12 09:19:20', '2014-05-12 09:19:20', 'test1@email.com', '$2a$10$IsVS0sPTdiR7OMmKMnJJbuDS2v6iXStgl2ANma0S7JFDStEa5.UWm', 'user', 'pending', '2014-05-12 09:19:20')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 20, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('udq6espw', 20)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('JyQzh1BfFQ6jL4fzyhfs', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test2@email.com', '$2a$10$8vgHcGFc2axaXQA21xiPpePi8dDL96RCmciv8yQkXa7t8VKMb0er.', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 21, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('utsuxnbv', 21)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('8nz55vcRR2Bx1RQzNaAV', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test3@email.com', '$2a$10$3mOhcfl5oloT/yw/J5wMv.th3pm0SNnTqzRfxNry9htGsM7QJeXFC', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 22, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u7u5xkuh', 22)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by FriendsController#create as JSON
+  Parameters: {"token"=>"q5uCwyEzpCVvaC8M1sCW", "email"=>"test2@email.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'q5uCwyEzpCVvaC8M1sCW' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'test2@email.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'q5uCwyEzpCVvaC8M1sCW' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `friends` (`created_at`, `friend_user_id`, `provider`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:21', 21, 'email', '2014-05-12 09:19:21', 20)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 66ms (Views: 4.3ms | ActiveRecord: 46.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('nau1mSPyp36g2X2VpRjj', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test1@email.com', '$2a$10$lnwkd4svQa3.elZREnSXE.e97It5PuXhLhoI/cmQ77WllKsnLqQiG', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 23, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ucb8pnp6', 23)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('TysmcydzyP6vCecVoLpL', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test2@email.com', '$2a$10$SAZPU88.rnfZC8Oh7Ru0pev8ZMIxx186wuwNR8mcAeBBJptc07flq', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 24, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u2svrtja', 24)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('yQLMqvpt4Xy1ioDnT3xt', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test3@email.com', '$2a$10$Ve7pUVo.AaatzFkRbJQMK.onBZShIjHrmYsgWFlobYjM3J7bqtdSW', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 25, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u482evkz', 25)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by FriendsController#create as JSON
+  Parameters: {"token"=>"nau1mSPyp36g2X2VpRjj"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'nau1mSPyp36g2X2VpRjj' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'nau1mSPyp36g2X2VpRjj' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('G6TvwZypzcsPDyaYaPSq', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test1@email.com', '$2a$10$ZocG2q7JGXsBedb1YZ4MUuFxa9z432/.t2LIKoN4GHOBFLyZt4xze', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 26, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('urtm335t', 26)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('N18q7tBZUXsYRpKbdspv', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test2@email.com', '$2a$10$ylg9OjCfRC3dYBS5CpVN9OUu10dEpo7PCskRDG0Y3N7BOAZGN7U0u', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 27, 20)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uj7d2znh', 27)
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('S6Dqs9YrUr9yAHmHw6WH', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test3@email.com', '$2a$10$MYupnlk4Ri8nOFE857/gMep2m81vXdbRa0bPQmaeTKRGxXyDJSx.W', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 28, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uq3keayj', 28)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUserCode Load (0.3ms)[0m  SELECT `user_codes`.* FROM `user_codes` WHERE `user_codes`.`user_id` = 27 ORDER BY `user_codes`.`id` ASC LIMIT 1
+Processing by FriendsController#create as JSON
+  Parameters: {"token"=>"G6TvwZypzcsPDyaYaPSq", "code"=>"uj7d2znh"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'G6TvwZypzcsPDyaYaPSq' LIMIT 1[0m
+  [1m[35mUserCode Load (0.2ms)[0m  SELECT `user_codes`.* FROM `user_codes` WHERE `user_codes`.`code` = 'uj7d2znh' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 27 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'G6TvwZypzcsPDyaYaPSq' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `friends` (`created_at`, `friend_user_id`, `provider`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:21', 27, 'code', '2014-05-12 09:19:21', 26)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('Vz2STE9hcgyFNRgjiDqy', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test1@email.com', '$2a$10$J6OvowChM8RVOE6VQv752uSjvXDRneG5JQKPaUMXDbOgb9G7r6fQi', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 29, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u2hh4t35', 29)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('oqVNJVgy5h9bYAmsZViH', '2014-05-12 09:19:21', '2014-05-12 09:19:21', 'test2@email.com', '$2a$10$IJNKCemEaE5rJTpSJy12PeXv3f4MsZBBxr8oH8u91xZ2DWIGmQfJe', 'user', 'pending', '2014-05-12 09:19:21')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:21', '2014-05-12 09:19:21', 30, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uduuu85d', 30)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('hf99nFcxs73qPz86Pkxq', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test3@email.com', '$2a$10$RgijFkK7dloI6zD1EK9i7uA4FRsaz2iWLNo0CuDXjorIYeE3AZI3G', 'user', 'pending', '2014-05-12 09:19:22')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 31, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ux4z6crf', 31)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by FriendsController#import as JSON
+  Parameters: {"token"=>"Vz2STE9hcgyFNRgjiDqy", "friends"=>"     test2@email.com, test3@email.com,     change@test.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Vz2STE9hcgyFNRgjiDqy' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` IN ('test2@email.com', 'test3@email.com', 'change@test.com')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Vz2STE9hcgyFNRgjiDqy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `friends` (`created_at`, `friend_user_id`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:22', 30, '2014-05-12 09:19:22', 29)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `friends` (`created_at`, `friend_user_id`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:22', 31, '2014-05-12 09:19:22', 29)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 9ms (Views: 2.4ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('Zfr4QzKefnQSX61wgx1r', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test1@email.com', '$2a$10$Urk2mf3iCBqWp/fItTxOYeHdBAcFVaRwle1UB.OWPPVWlFypyM9SG', 'user', 'pending', '2014-05-12 09:19:22')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 32, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ua8jfsaa', 32)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('nxHdXzPRpg4gMeEFdx3s', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test2@email.com', '$2a$10$Vf5lLNOBjRS6qud9KrxeUeGq1aJVNaJ1OI5kHmWa5fINiDO6GAMzG', 'user', 'pending', '2014-05-12 09:19:22')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 33, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uxq3n2pd', 33)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test3@email.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('GWrxuNqvTfWwy5z5tiWD', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test3@email.com', '$2a$10$IQQItq5kshVdhH3f7XQAbuJDZCKpzzt/NkAIP4iV8n8poVcspOu6O', 'user', 'pending', '2014-05-12 09:19:22')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 34, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u93utgmj', 34)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `friends` (`created_at`, `friend_user_id`, `provider`, `updated_at`, `user_id`) VALUES ('2014-05-12 09:19:22', 33, 'code', '2014-05-12 09:19:22', 32)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by FriendsController#index as JSON
+  Parameters: {"token"=>"Zfr4QzKefnQSX61wgx1r"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Zfr4QzKefnQSX61wgx1r' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Zfr4QzKefnQSX61wgx1r' LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 32
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 33 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test7@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('zCZcvVZFJeN9zhUKrxyY', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test7@test.com', '$2a$10$AeXu8HAN6/1YcCRc14KOEOerql0sZ8KTpzozBomjJDPtvQSFX0TaO', 'user', 'pending', '2014-05-12 09:19:22')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 35, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uay8vsya', 35)
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>nil}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test8@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('x3aGFoNR2bXsZg3zsyNd', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test8@test.com', '$2a$10$.BP7jj1YirsqFnT7JP1l/Os2JY/AEtLBeHkF784Y/xl.w6nOUintC', 'user', 'pending', '2014-05-12 09:19:22')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 36, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uavf7sxh', 36)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>"test8@test.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'test8@test.com' LIMIT 1[0m
+Completed 500 Internal Server Error in 74ms
+  [1m[35m (20.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test9@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('DfhhF8DbeGzn9fGvFi3U', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test9@test.com', '$2a$10$5ZTCZQQ5oWxc3dBxqdqf1e9wdu82AI7vy/Gf4yNRiQbdBAA7gUeWi', 'user', 'pending', '2014-05-12 09:19:22')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 37, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ue9acbgk', 37)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>"daneil@daneil.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'daneil@daneil.com' LIMIT 1
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test10@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('Tip6jfwzDKUcV41JMsVN', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test10@test.com', '$2a$10$.I.tIWsPvVtltVRjl0Q0H.nTXlc/3sRhwYu9JwcYoeT7bCpFY/Oj2', 'user', 'pending', '2014-05-12 09:19:22')[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 38, 20)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uwu3kegt', 38)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>"test10@test.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'test10@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test10@test.com' AND `users`.`id` != 38) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `authentication_token` = 'dkqzLubk4xbUcjgsFqBx', `updated_at` = '2014-05-12 09:19:22' WHERE `users`.`id` = 38
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 88ms (Views: 4.1ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test11@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('21h1sfd8XSEwGsDQQidE', '2014-05-12 09:19:22', '2014-05-12 09:19:22', 'test11@test.com', '$2a$10$ZNKMjwX4E8vToqM7I948tung6F6gdCmMENQYMaRyRVqBu1kmzfuPG', 'user', 'pending', '2014-05-12 09:19:22')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:22', '2014-05-12 09:19:22', 39, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uwdg3z4x', 39)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>"test11@test.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'test11@test.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test11@test.com' AND `users`.`id` != 39) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `authentication_token` = 'NsMC8NEzJwqQnEpGGTvq', `updated_at` = '2014-05-12 09:19:23' WHERE `users`.`id` = 39[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 79ms (Views: 0.9ms | ActiveRecord: 1.4ms)
+  [1m[36m (3.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test12@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('FJZTTQYcLAWyU6DyqEoq', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test12@test.com', '$2a$10$4uPpQqj9AGjoVxr5rJpVyOZqVFoZpmac5FLAjKIF.53tEVTJK4L1.', 'user', 'pending', '2014-05-12 09:19:23')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 40, 20)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uqtncjrc', 40)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LoginsController#create as JSON
+  Parameters: {"email"=>"test12@test.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'test12@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test12@test.com' AND `users`.`id` != 40) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `authentication_token` = 'X7tyHzaQUDsCYytLYqBg', `updated_at` = '2014-05-12 09:19:23' WHERE `users`.`id` = 40
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 78ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+  [1m[35m (4.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test13@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('ngubJQDTk3bxrxeyFjhs', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test13@test.com', '$2a$10$BrlRTzE82xASzfaCKMV0p.MxCuyKS1MQVZuZ8.JcHqsS461LSdWAK', 'user', 'pending', '2014-05-12 09:19:23')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 41, 20)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ua2qrfsf', 41)[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test13@test.com", "password"=>"[FILTERED]"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test13@test.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test14@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY '1233.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test15@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('PAfZXZkLgSRkPeZXcBdt', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test15@test.com', '$2a$10$ZJf5RSxeQFxyy5w4izYPUOMWLveBz4Yo710q2F.NKc/BNLgq9Xyoa', 'user', 'pending', '2014-05-12 09:19:23')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 42, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('urnmjhhr', 42)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#update_password as HTML
+  Parameters: {"password"=>"[FILTERED]", "token"=>"PAfZXZkLgSRkPeZXcBdt"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'PAfZXZkLgSRkPeZXcBdt' LIMIT 1
+Completed 500 Internal Server Error in 74ms
+  [1m[36m (3.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test16@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('SaU7d7hr1g6J5x8VcCq7', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test16@test.com', '$2a$10$cL96pg6z65yCt21qCAufS.1PNAjqGWiRWkIGRpz81DSXqhPKhXrbC', 'user', 'pending', '2014-05-12 09:19:23')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 43, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ueemqq2c', 43)[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#update_password as HTML
+  Parameters: {"password"=>"[FILTERED]", "new_password"=>"[FILTERED]", "captcha"=>"1122", "token"=>"SaU7d7hr1g6J5x8VcCq7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'SaU7d7hr1g6J5x8VcCq7' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test16@test.com' AND `users`.`id` != 43) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `password` = '222222', `updated_at` = '2014-05-12 09:19:23' WHERE `users`.`id` = 43
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 80ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test17@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('Yd1YVSAdbJqU9rUwyXGJ', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test17@test.com', '$2a$10$zvBr.xwNiCxqfIRa8YrFE.R9YC6DsbAi2BV72ELqYQcA0Ioc7.Ej2', 'user', 'pending', '2014-05-12 09:19:23')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 44, 20)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ujsr6qcd', 44)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#update_password as HTML
+  Parameters: {"password"=>"[FILTERED]", "new_password"=>"[FILTERED]", "captcha"=>"1122", "token"=>"Yd1YVSAdbJqU9rUwyXGJ"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Yd1YVSAdbJqU9rUwyXGJ' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test17@test.com' AND `users`.`id` != 44) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `password` = '222222', `updated_at` = '2014-05-12 09:19:23' WHERE `users`.`id` = 44[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 79ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+  [1m[36m (10.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test18@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('xLU6xM5Dx7nt72pTZes4', '2014-05-12 09:19:23', '2014-05-12 09:19:23', 'test18@test.com', '$2a$10$VFhZHbonvQE3DF1JfddX.utjIJnLQGtU2xPcf86z7JXdON.n05FFy', 'user', 'pending', '2014-05-12 09:19:23')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:23', '2014-05-12 09:19:23', 45, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ujduxckc', 45)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#update_password as HTML
+  Parameters: {"password"=>"[FILTERED]", "new_password"=>"[FILTERED]", "token"=>"xLU6xM5Dx7nt72pTZes4"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'xLU6xM5Dx7nt72pTZes4' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'test18@test.com' AND `users`.`id` != 45) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 422 Unprocessable Entity in 81ms
+  [1m[36m (26.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('ypUxE7RaJZtHpexz7uLi', '2014-05-12 09:19:24', '2014-05-12 09:19:24', 'test@test.com', '$2a$10$a5MzlG7gd5.s6hlchV7rOOL4.ZUIJhplKUMx20r2o9O8acUDwmFhu', 'user', 'pending', '2014-05-12 09:19:24')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:24', '2014-05-12 09:19:24', 46, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uqc66eav', 46)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 90ms (Views: 3.9ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('85qtAvoR4JUbCyJxidMV', '2014-05-12 09:19:24', '2014-05-12 09:19:24', 'test@test.com', '$2a$10$InKvIFdAiYDKpvk9QhPUY.FqgUOcRjkmS2gQF3Yt5HSQu8cWwknnq', 'user', 'pending', '2014-05-12 09:19:24')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:24', '2014-05-12 09:19:24', 47, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('uccpahe2', 47)[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 84ms (Views: 1.7ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@test.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('YXdka76H1As8v8YBXPVH', '2014-05-12 09:19:24', '2014-05-12 09:19:24', 'test@test.com', '$2a$10$qfRe7cLGcOsRnyANMkSRO.X9/HbEbAxdykQnVlnA167w2DnEWzSyW', 'user', 'pending', '2014-05-12 09:19:24')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:24', '2014-05-12 09:19:24', 48, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('u9rpfg5v', 48)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 82ms (Views: 1.4ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test19@test.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `authentication_token_updated_at`, `created_at`, `email`, `password`, `role`, `state`, `updated_at`) VALUES ('SbnKu7upwQ1g3hgUhxVG', '2014-05-12 09:19:24', '2014-05-12 09:19:24', 'test19@test.com', '$2a$10$gsRYzF1OlN7ps3d70nGFourkOHM/yszyTuk/yxRSGQCxm.i1DHZXa', 'user', 'pending', '2014-05-12 09:19:24')[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `accounts` (`coins`, `created_at`, `updated_at`, `user_id`, `vcs`) VALUES (1700, '2014-05-12 09:19:24', '2014-05-12 09:19:24', 49, 20)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_codes` (`code`, `user_id`) VALUES ('ufwne4cm', 49)[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m

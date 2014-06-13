@@ -1,0 +1,9 @@
+<h1>Email</h1>
+<%= form_for :password_request,:url=>{:controller=>"password_requests",:action=>"create"} do |f| %>
+  <input id="user_email" name= "email" type="text" /></br>
+  <label for="captcha">captcha</label>
+  <%= show_simple_captcha%></br>
+    <div class="actions">
+    <%= f.submit "发送"%>
+  </div></br>
+<%end%>

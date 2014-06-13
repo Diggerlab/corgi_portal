@@ -1,0 +1,18 @@
+test:
+  auth2: 1
+
+development: 
+  apn: 1
+  auth2: 1
+  stat: 1
+
+staging: 
+  apn: 1
+  auth2: 1
+  stat: 1
+
+production: 
+  apn: 1
+  auth2: 1
+  stat: 1
+  admin: 6

@@ -1,0 +1,14 @@
+<%=form_for :feedback, :html=>{:class=> "form-signin"}, :url=>{:controller=>"feedbacks",:action=>"create"} do |f|%>
+  <div class="filed">
+    <%=f.label :content%><br/>
+    <%=f.text_area :content%><br/>
+    <%=f.label :contact%><br/>
+    <%=f.text_field :contact%><br/>
+    <%= f.hidden_field :token, :value => current_user.authentication_token %>
+    <%= f.hidden_field :ip, :value => @ip %>
+  </div>
+  <div class="actions">
+    <%= f.submit "发布"%><br/>
+  </div>
+
+<%end%>
